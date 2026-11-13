@@ -1,0 +1,46 @@
+{% comment %}
+  Recent News box on the home page, built from _data/news.yml (newest first).
+  Usage: {% include news-list.html visible=10 style="timeline" %}
+  style: timeline | rows | cards (how items are laid out; see _sass/_custom.scss)
+
+  All items are in one box. The box is sized so that the `visible` newest items
+  show, with the top of the next one peeking out; older items are reached by
+  scrolling inside the box ("page in page"). On phones, and without JavaScript,
+  the box is off and the list simply shows every item.
+{% endcomment %}
+{% assign news_items = site.data.news | sort: "date" | reverse %}
+{% assign news_visible = include.visible | default: 10 %}
+{% assign news_style = include.style | default: "timeline" %}
+
+<div class="news-scroll news--{{ news_style }}" id="news-scroll" data-visible="{{ news_visible }}" role="region" aria-label="Recent news, newest first">
+  <ul class="news-list">
+    {% for item in news_items %}{% include news-item.html item=item %}{% endfor %}
+  </ul>
+</div>
+<p class="news-scroll-hint" id="news-scroll-hint" hidden>Scroll inside the box for older news &darr;</p>
+
+<script>
+  (function () {
+    var box = document.getElementById("news-scroll");
+    var hint = document.getElementById("news-scroll-hint");
+    if (!box) return;
+    var visible = parseInt(box.dataset.visible, 10) || 10;
+    var phone = window.matchMedia("(max-width: 768px)");
+
+    function fit() {
+      var items = box.querySelectorAll(".news-item");
+      var on = !phone.matches && items.length > visible;
+      box.classList.toggle("is-scrollable", on);
+      box.tabIndex = on ? 0 : -1;
+      hint.hidden = !on;
+      if (!on) { box.style.maxHeight = ""; return; }
+      // Height up to the start of item `visible + 1`, plus a peek of it.
+      box.style.maxHeight = (items[visible].offsetTop + 28) + "px";
+    }
+
+    fit();
+    window.addEventListener("load", fit);
+    window.addEventListener("resize", fit);
+    box.addEventListener("toggle", fit, true); // a gallery opened or closed
+  })();
+</script>

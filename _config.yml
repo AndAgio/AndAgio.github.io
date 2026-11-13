@@ -12,7 +12,7 @@ site_theme               : "default" # The available themes options are "default
 title                    : "Andrea Agiollo"
 title_separator          : "-"
 name                     : &name "Andrea Agiollo"
-description              : &description "Your Name's academic portfolio"   # Update this with a general description of your site, this is the default if not overridden by a page
+description              : &description "Andrea Agiollo, postdoctoral researcher at TU Delft working on trustworthy AI: the privacy, robustness and reliability of machine learning and neuro-symbolic AI."
 url                      : https://AndAgio.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
                                                       # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -26,7 +26,7 @@ author:
   avatar           : "profile.jpeg"
   name             : "Dr. Andrea Agiollo"
   pronouns         : # example: "she/her"  
-  bio              : "Postdoctoral Researcher"
+  bio              : "Postdoctoral Researcher, Multimedia Computing Group"
   location         : "Delft, The Netherlands"
   employer         : "TU Delft"
   uri              : # URL
@@ -125,7 +125,7 @@ staticman:
       options:
         format           : "iso8601" # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
 atom_feed:
-  hide                   : false     # change to true to hide the RSS feed in the footer
+  hide                   : true      # no blog posts, so no feed link in the footer
   path                   : # blank (default) uses feed.xml
 
 
@@ -190,8 +190,18 @@ exclude:
   - package.json*
   - Rakefile
   - README
+  - README.md
   - tmp
   - vendor
+  # template tooling, not pages
+  - markdown_generator
+  - talkmap
+  - talkmap.py
+  - talkmap.ipynb
+  - talkmap_out.ipynb
+  - scripts
+  - docker-compose.yaml
+  - _config_docker.yml
 keep_files:
   - .git
   - .svn
@@ -237,6 +247,11 @@ collections:
 
 # These settings control how pages and collections are included in the site
 defaults:
+  # Keep the CV PDF out of the sitemap (search engines). The CV page links it when ready.
+  - scope:
+      path: "files/research_cv_agiollo.pdf"
+    values:
+      sitemap: false
   # _posts
   - scope:
       path: ""

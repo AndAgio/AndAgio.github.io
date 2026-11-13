@@ -1,0 +1,34 @@
+{% comment %}
+  One news item from _data/news.yml. Used by news-list.html.
+  The photo gallery shows only the photos that exist in the folder, and the caption
+  only once all listed photos are there. Photos open full size when clicked.
+{% endcomment %}
+{% assign item = include.item %}
+<li class="news-item">
+  <time class="news-item__date" datetime="{{ item.date | date: '%Y-%m' }}">{{ item.date | date: "%b %Y" }}</time>
+  <div class="news-item__body">
+  <p class="news-item__text">{{ item.text | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
+  {% if item.gallery %}
+    {% assign shown = 0 %}
+    {% capture gallery_imgs %}
+      {% for photo in item.gallery.photos %}
+        {% assign photo_path = item.gallery.folder | append: photo.file %}
+        {% assign photo_file = site.static_files | where: "path", photo_path | first %}
+        {% if photo_file %}
+          {% assign shown = shown | plus: 1 %}
+          <a href="{{ photo_path | relative_url }}" target="_blank" rel="noopener"><img src="{{ photo_path | relative_url }}" loading="lazy" alt="{{ photo.alt | escape }}"></a>
+        {% endif %}
+      {% endfor %}
+    {% endcapture %}
+    {% if shown > 0 %}
+    <details class="news-gallery{% if item.gallery.size == 'large' %} news-gallery--large{% endif %}">
+      <summary>📸 <strong>{{ item.gallery.title }}</strong></summary>
+      <div class="news-gallery__photos">{{ gallery_imgs }}</div>
+      {% if item.gallery.caption and shown == item.gallery.photos.size %}
+      <p class="news-gallery__caption">{{ item.gallery.caption | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
+      {% endif %}
+    </details>
+    {% endif %}
+  {% endif %}
+  </div>
+</li>

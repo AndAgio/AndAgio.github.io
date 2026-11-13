@@ -1,0 +1,143 @@
+# Recent News, shown on the home page (_pages/about.md).
+#
+# How it works
+# - Add a new item ANYWHERE in this list: the page sorts items by `date`, newest first.
+# - The home page shows all items in a scrollable box sized to the 10 newest
+#   (visible=10 in _pages/about.md); older ones are reached by scrolling inside it.
+# - `date` decides the order. Only the month and year are shown. Use the real day when
+#   you know it, so two items from the same month keep the right order.
+# - `text` is Markdown: links, *italics*, **bold** and emoji work.
+# - `gallery` is optional. Photos are shown only if the files exist in `folder`,
+#   so a gallery can be prepared before the photos are uploaded. The caption is
+#   shown only once every listed photo is there. `size: large` shows bigger photos
+#   (good for a single group photo). Clicking a photo opens it full size.
+
+- date: 2026-11-15
+  text: >-
+    Our paper [Beyond the Syntax: Do Security Experts Trust LLMs for NIDS Rule Engineering?](https://doi.org/10.1145/3847352.3848108)
+    was selected as one of 8 spotlight papers at [AISec 2026](https://aisec.cc/), co-located with ACM CCS 2026.
+    A reality check on LLM-written intrusion detection rules: they look right but are often too broad, so the experts in
+    our user study see LLMs as drafting and checking aids rather than autonomous rule writers.
+
+- date: 2026-11-12
+  text: >-
+    Took part in the [TU Delft Generative AI Workgroup](https://www.tudelft.nl/ellis-delft-unit/programmes/tu-delft-generative-ai-workgroup),
+    helping to shape the university-wide stance and agenda on generative AI in research. The workgroup brings together
+    researchers from across TU Delft's faculties to unify and amplify the university's efforts in generative AI.
+
+- date: 2026-10-16
+  text: >-
+    Honored and proud to have been invited to the
+    ["Advancing Testability and Verifiability of CPS with Neurosymbolic and Large Language Models"](https://www.dagstuhl.de/26421)
+    Dagstuhl Seminar, held on 11–16 October at Schloss Dagstuhl. This seminar brought together experts in formal methods,
+    AI, robotics and software engineering to explore how neuro-symbolic AI and LLMs can help test and verify the
+    learning-enabled cyber-physical systems used in transportation, healthcare and robotics.
+  gallery:
+    title: Bits from Dagstuhl 2026
+    folder: /images/events/dagstuhl_2026/
+    size: large
+    photos:
+      - file: 1.jpg
+        alt: Group photo of the participants of Dagstuhl Seminar 26421 on the steps of Schloss Dagstuhl
+    caption: Seminar participants at Schloss Dagstuhl. Photo © Schloss Dagstuhl – LZI GmbH, CC BY-NC-ND.
+
+- date: 2026-10-01
+  text: >-
+    Joined the [Multimedia Computing Group](https://www.tudelft.nl/en/ewi/over-de-faculteit/afdelingen/intelligent-systems/multimedia-computing)
+    at TU Delft, where I work with [Dr. Megha Khosla](https://khosla.github.io/) on trustworthy and privacy-preserving graph learning.
+
+- date: 2026-09-24
+  text: >-
+    Gave a talk on "The Geometry of Memorization: When Better Generalization Increases Privacy Risk" at the
+    [3rd ACCSS Security & AI Workshop](https://secai-accss.github.io/workshop3) in Apeldoorn (NL).
+
+- date: 2026-06-19
+  text: >-
+    Represented the TU Delft Postdoc Network at the first
+    [National Postdoc Day](https://postdocnl.com/national-postdoc-day-2026-building-the-postdoc-community-in-the-netherlands/),
+    organized by PostdocNL in Utrecht, which brought together postdocs from universities across the Netherlands.
+  gallery:
+    title: Bits from National Postdoc Day 2026
+    folder: /images/events/postdoc_day_2026/
+    photos:
+      - file: 1.jpg
+        alt: Plenary talk in a lecture hall at National Postdoc Day, with the PostdocNL banner on stage
+      - file: 2.jpg
+        alt: Session on grant planning for senior postdocs
+      - file: 3.jpg
+        alt: Postdocs talking at standing tables during the networking break
+    caption: (Leftmost) Plenary talk, (Middle) Grant planning for senior postdocs, (Rightmost) Networking.
+
+- date: 2026-05-15
+  text: >-
+    🏆 Proud to be named a Gold Reviewer at [ICML 2026](https://icml.cc/Conferences/2026/ProgramCommittee#gold)!
+
+- date: 2026-04-24
+  text: >-
+    Attending ICLR 2026 in Rio de Janeiro (Brazil 🇧🇷) and presenting our paper
+    ["Membership Privacy Risks of Sharpness Aware Minimization"](https://proceedings.iclr.cc/paper_files/paper/2026/hash/82f77023563b21fbd423b2d9b165c281-Abstract-Conference.html).
+    The paper is a cautionary tale on flatter minima and sharper privacy risks, showing how SAM's improved generalization
+    comes at the cost of higher vulnerability to membership inference attacks.
+  gallery:
+    title: Bits from ICLR 2026
+    folder: /images/conferences/iclr_2026/
+    photos:
+      - file: 1.jpeg
+        alt: TU Delft researchers at ICLR 2026
+      - file: 2.jpeg
+        alt: Discussing the paper at ICLR 2026
+      - file: 3.jpeg
+        alt: Our paper poster at ICLR 2026
+    caption: (Leftmost) TU Delft @ ICLR, (Middle) Paper Discussion, (Rightmost) Our Paper Poster.
+
+- date: 2026-04-01
+  text: >-
+    Joined the TU Delft Postdoc Network Committee.
+
+- date: 2026-03-01
+  text: >-
+    [HotDiSec 2026](https://hotdisec.github.io/website_2026/) has been officially accepted as a co-located workshop at
+    ESORICS 2026, taking place this September!
+
+# TODO (Andrea, 2026-11-13): photos for ANSyA 2025 and HotDiML 2025 are coming.
+# Put them in the folders below as 1.jpg, 2.jpg, ... (resized, location data removed)
+# and the galleries appear by themselves. Check the alt texts and captions then.
+- date: 2025-10-01
+  text: >-
+    Hosted our [ANSyA 2025](https://ansya-workshop.github.io/2025/) workshop in Bologna (IT).
+    The workshop was a great success, recording 80+ participants, two sessions of poster discussions and an outstanding keynote.
+  gallery:
+    title: Bits from ANSyA 2025
+    folder: /images/workshops/ansya_2025/
+    photos:
+      - file: 1.jpg
+        alt: ANSyA 2025 organizers
+      - file: 2.jpg
+        alt: Poster session at ANSyA 2025
+      - file: 3.jpg
+        alt: Poster session at ANSyA 2025
+      - file: 4.jpg
+        alt: Audience at ANSyA 2025
+      - file: 5.jpg
+        alt: Keynote at ANSyA 2025
+    caption: (Leftmost) Organizers, (Middle) Posters and Attendance, (Rightmost) Keynote.
+
+- date: 2025-08-01
+  text: >-
+    Became a reviewer for the [Transactions on Machine Learning Research](https://jmlr.org/tmlr/) (TMLR) journal.
+
+- date: 2025-07-01
+  text: >-
+    Hosted our [HotDiML 2025](https://hotdiml.github.io/HotDiML2025/) workshop in Glasgow (UK). It was a buzzing experience,
+    with fruitful discussions and an engaging keynote from Prof. Giuseppe Antonio Di Luna from Sapienza University of Rome.
+  gallery:
+    title: Bits from HotDiML 2025
+    folder: /images/workshops/hotdiml_2025/
+    photos:
+      - file: 1.jpg
+        alt: Opening remarks at HotDiML 2025
+      - file: 2.jpg
+        alt: Keynote at HotDiML 2025
+      - file: 3.jpg
+        alt: Best paper award at HotDiML 2025
+    caption: (Leftmost) Opening remarks, (Middle) Keynote, (Rightmost) Best paper award.
