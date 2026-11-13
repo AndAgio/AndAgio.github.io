@@ -1,0 +1,595 @@
+# Publication list, rendered by _pages/publications.html (via _includes/pub-item.html).
+# One entry per paper, newest first: the page shows them in this order, grouped by year.
+# `type` (conference | journal | workshop | chapter) decides how the venue line reads.
+# topics: research-theme ids from _data/topics.yml (tags + filter on the page).
+# keywords: free-text keywords shown on the card (not clickable, not a filter).
+# The page also filters by `type` (Journal / Conference / Workshop / Book chapter).
+# Optional: thumb (+ thumb_alt), badge (+ badge_note), equal: true (shows the
+# '* Equal contribution' note; equal_note changes the wording, e.g. "Co-first authors";
+# mark the authors with *), abstract, bibtex, and links with these keys:
+# paper, pdf, preprint, code, data, results, slides, doi.
+# PDF rule: host or link the published PDF only if it is open access (CC BY etc.);
+# otherwise link an author-posted copy (arXiv) as `preprint`, or leave it out.
+# Code links were checked against each paper's own text on 2026-11-13.
+# Generated on 2026-11-13 from cv/Publications.bib + OpenAlex/arXiv/publisher pages.
+
+- id: aisec2026
+  type: workshop
+  year: 2026
+  topics: [security]
+  keywords: ["NIDS rule engineering", "Large Language Models", "Intrusion detection", "User study", "Human-centered security"]
+  title: "Beyond the Syntax: Do Security Experts Trust LLMs for NIDS Rule Engineering?"
+  authors: ["Lorenzo Di Filippo", "Enkeleda Bardhi", "Andrea Agiollo", "Alessandro Palma", "Silvia Bonomi", "Fernando Kuipers"]
+  venue: "AISec 2026"
+  venue_full: "19th ACM Workshop on Artificial Intelligence and Security, co-located with ACM CCS 2026"
+  thumb: "/images/paper_thumbnails/aisec2026_thumb.jpg"
+  thumb_alt: "First page of the paper"
+  badge: "Spotlight"
+  badge_note: "one of 8 spotlight papers"
+  links:
+    preprint: "https://arxiv.org/abs/2607.05916"
+    doi: "https://doi.org/10.1145/3847352.3848108"
+  abstract: "As network threats evolve, manual NIDS rule engineering has become a critical operational bottleneck. While Large Language Models (LLMs) show promise for automating this process, their ability to produce production-ready rules remains unvalidated. This paper presents a human-centered investigation into LLM-based NIDS rule engineering, formalizing a grounded generation framework and evaluating it through a user study with 10 domain experts. Our evaluation reveals a syntax-semantics paradox: although LLMs generate syntactically correct rules, experts find them only partially deployable due to low specificity and logic hallucinations in 12% of cases. While the system received a favorable SUS score of 67, practitioners remain skeptical of its autonomous capabilities, viewing LLMs as support tools for drafting and verification rather than independent generators. Finally, our statistical analysis indicates that while large-scale models ($\\geq 70B$) consistently produce syntactically valid rules, small models ($\\leq 4B$) are largely ineffective for IDS rule generation."
+  bibtex: |-
+    @inproceedings{DiFilippoAisec2026,
+      title     = {Beyond the Syntax: Do Security Experts Trust {LLMs} for {NIDS} Rule Engineering?},
+      author    = {Di Filippo, Lorenzo and Bardhi, Enkeleda and Agiollo, Andrea and Palma, Alessandro and Bonomi, Silvia and Kuipers, Fernando},
+      booktitle = {Proceedings of the 19th ACM Workshop on Artificial Intelligence and Security (AISec '26)},
+      pages     = {293--304},
+      year      = {2026},
+      publisher = {ACM},
+      doi       = {10.1145/3847352.3848108}
+    }
+
+- id: iclr2026
+  type: conference
+  year: 2026
+  topics: [privacy]
+  keywords: ["Membership inference attacks", "Sharpness-Aware Minimization", "Memorization", "Generalization"]
+  title: "Membership Privacy Risks of Sharpness Aware Minimization"
+  authors: ["Young In Kim", "Andrea Agiollo", "Pratiksha Agrawal", "Johannes O. Royset", "Rajiv Khanna"]
+  venue: "ICLR 2026"
+  venue_full: "International Conference on Learning Representations"
+  thumb: "/images/paper_thumbnails/iclr2026_thumb.jpg"
+  thumb_alt: "First page of the paper"
+  links:
+    paper: "https://proceedings.iclr.cc/paper_files/paper/2026/hash/82f77023563b21fbd423b2d9b165c281-Abstract-Conference.html"
+    pdf: "https://proceedings.iclr.cc/paper_files/paper/2026/file/82f77023563b21fbd423b2d9b165c281-Paper-Conference.pdf"
+    data: "https://github.com/ddioung/SAM_mem_infl_scores"
+  abstract: "Optimization algorithms that seek flatter minima, such as Sharpness-Aware Minimization (SAM), are credited with improved generalization and robustness to noise. We ask whether such gains impact membership privacy. Surprisingly, we find that SAM is more prone to Membership Inference Attacks (MIA) than classical SGD across multiple datasets and attack methods, despite achieving lower test error. This suggests that the geometric mechanism of SAM that improves generalization simultaneously exacerbates membership leakage. We investigate this phenomenon through extensive analysis of memorization and influence scores. Our results reveal that SAM is more capable of capturing atypical subpatterns, leading to higher memorization scores of samples. Conversely, SGD depends more heavily on majority features, exhibiting worse generalization on atypical subgroups and lower memorization. Crucially, this characteristic of SAM can be linked to lower variance in the prediction confidence of unseen samples, thereby amplifying membership signals. Finally, we model SAM under a perfectly interpolating linear regime and theoretically show that sharpness regularization inherently reduces variance, guaranteeing a higher MIA advantage for confidence and likelihood ratio attacks."
+  bibtex: |-
+    @inproceedings{KimIclr2026,
+      title     = {Membership Privacy Risks of Sharpness Aware Minimization},
+      author    = {Kim, Young In and Agiollo, Andrea and Agrawal, Pratiksha and Royset, Johannes O. and Khanna, Rajiv},
+      booktitle = {International Conference on Learning Representations (ICLR)},
+      year      = {2026}
+    }
+
+- id: agents2026
+  type: chapter
+  year: 2026
+  topics: [neurosymbolic]
+  keywords: ["Intelligent agents", "Multi-agent systems", "Neuro-symbolic integration", "Symbolic reasoning"]
+  title: "Intelligent Agents from Symbolic to Neurosymbolic Systems: The Quest for Integration"
+  authors: ["Andrea Agiollo", "Roberta Calegari", "Giovanni Ciatto", "Matteo Magnini", "Andrea Omicini", "Federico Sabbatini"]
+  venue: "Book chapter, 2026"
+  venue_full: "The Agents Journey: Twenty-Five Years of Multi-agent Systems, Springer"
+  thumb: "/images/paper_thumbnails/agents2026_thumb.jpg"
+  thumb_alt: "First page of the paper"
+  links:
+    pdf: "https://link.springer.com/content/pdf/10.1007/978-3-032-22940-3_12.pdf"
+    doi: "https://doi.org/10.1007/978-3-032-22940-3_12"
+  abstract: "In this chapter we take as our reference twenty-five years of scientific and technical results presented at the Workshop on Objects, and explore the development of rational agents and integration with machine learning (ML) techniques, discussing their transition from pure symbolic to subsymbolic and neurosymbolic systems. Given the growing importance of combining rational agent reasoning with ML, we first outline the current state of technology by highlighting key milestones and breakthroughs. Pinpointing logics and logic programming as the main foundational tool for the design and implementation of rational agents, we discuss successful implementations and applications of logic-based agents , then we identify some of the main integration strands of subsymbolic techniques within rational agents. In particular, we focus on symbolic knowledge injection (SKI) and symbolic knowledge extraction (SKE) as some of the most relevant neurosymbolic techniques, and on their impact on intelligent agents and multi-agent systems (MASs). Current gaps and challenges in the integration of rational agents with ML are finally discussed along with future research directions."
+  bibtex: |-
+    @incollection{AgiolloTwentyfive2026,
+      title     = {Intelligent Agents from Symbolic to Neurosymbolic Systems: The Quest for Integration},
+      author    = {Agiollo, Andrea and Calegari, Roberta and Ciatto, Giovanni and Magnini, Matteo and Omicini, Andrea and Sabbatini, Federico},
+      booktitle = {The Agents Journey: Twenty-Five Years of Multi-agent Systems},
+      pages     = {320--339},
+      year      = {2026},
+      publisher = {Springer},
+      doi       = {10.1007/978-3-032-22940-3_12}
+    }
+
+- id: kbs2025
+  type: journal
+  year: 2025
+  topics: [neurosymbolic]
+  keywords: ["Large Language Models", "Ontologies", "Knowledge graphs", "Knowledge instantiation"]
+  title: "Large Language Models as Oracles for Instantiating Ontologies with Domain-Specific Knowledge"
+  authors: ["Giovanni Ciatto", "Andrea Agiollo", "Matteo Magnini", "Andrea Omicini"]
+  venue: "Knowledge-Based Systems, 2025"
+  venue_full: "Elsevier Knowledge-Based Systems, vol. 310"
+  thumb: "/images/paper_thumbnails/kbs2025_thumb.jpg"
+  thumb_alt: "First page of the paper"
+  links:
+    preprint: "https://arxiv.org/abs/2404.04108"
+    code: "https://github.com/Chistera4-Expectation/kg-filler"
+    doi: "https://doi.org/10.1016/j.knosys.2024.112940"
+  abstract: "Background: Endowing intelligent systems with semantic data commonly requires designing and instantiating ontologies with domain-specific knowledge. Especially in the early phases, those activities are typically performed manually by human experts possibly leveraging on their own experience. The resulting process is therefore time-consuming, error-prone, and often biased by the personal background of the ontology designer. Objective: To mitigate that issue, we propose a novel domain-independent approach to automatically instantiate ontologies with domain-specific knowledge, by leveraging on large language models (LLMs) as oracles. Methods: Starting from (i) an initial schema composed by inter-related classes and properties and (ii) a set of query templates, our method queries the LLM multiple times, and generates instances for both classes and properties from its replies. Thus, the ontology is automatically filled with domain-specific knowledge, compliant to the initial schema. As a result, the ontology is quickly and automatically enriched with manifold instances, which experts may consider to keep, adjust, discard, or complement according to their own needs and expertise. Contribution: We formalise our method in general way and instantiate it over various LLMs, as well as on a concrete case study . We report experiments rooted in the nutritional domain where an ontology of food meals and their ingredients is automatically instantiated from scratch, starting from a categorisation of meals and their relationships. There, we analyse the quality of the generated ontologies and compare ontologies attained by exploiting different LLMs. Experimentally, our approach achieves a quality metric that is up to five times higher than the state-of-the-art, while reducing erroneous entities and relations by up to ten times. Finally, we provide a SWOT analysis of the proposed method."
+  bibtex: |-
+    @article{CiattoLlm2025,
+      title     = {Large Language Models as Oracles for Instantiating Ontologies with Domain-Specific Knowledge},
+      author    = {Ciatto, Giovanni and Agiollo, Andrea and Magnini, Matteo and Omicini, Andrea},
+      journal   = {Knowledge-Based Systems},
+      volume    = {310},
+      pages     = {112940},
+      year      = {2025},
+      publisher = {Elsevier},
+      doi       = {10.1016/j.knosys.2024.112940}
+    }
+
+- id: kdd2024
+  type: conference
+  year: 2024
+  topics: [privacy, efficient]
+  keywords: ["Memorization", "Loss surface geometry", "Dataset pruning", "Data summarization", "Efficient training"]
+  title: "Approximating Memorization Using Loss Surface Geometry for Dataset Pruning and Summarization"
+  authors: ["Andrea Agiollo*", "Young In Kim*", "Rajiv Khanna"]
+  equal: true
+  venue: "KDD 2024"
+  venue_full: "30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining"
+  thumb: "/images/paper_thumbnails/kdd2024_thumb.png"
+  thumb_alt: "First page of the KDD 2024 paper"
+  links:
+    pdf: "/files/papers/kdd2024.pdf"
+    code: "https://github.com/AndAgio/SAMIS"
+    doi: "https://doi.org/10.1145/3637528.3671985"
+  abstract: "The sustainable training of modern neural network models represents an open challenge. Several existing methods approach this issue by identifying a subset of relevant data samples from the full training data to be used in model optimization with the goal of matching the performance of the full data training with that of the subset data training. Our work explores using memorization scores to find representative and atypical samples. We demonstrate that memorization-aware dataset summarization improves the subset construction performance. However, computing memorization scores is notably resource-intensive. To this end, we propose a novel method that leverages the discrepancy between sharpness-aware minimization and stochastic gradient descent to capture data points atypicality. We evaluate our metric over several efficient approximation functions for memorization scores (namely proxies), empirically showing superior correlation and effectiveness. We explore the causes behind our approximation quality, highlighting how typical data points trigger a flatter loss landscape compared to atypical ones. Extensive experiments confirm the effectiveness of our proxy for dataset pruning and summarization tasks, surpassing state-of-the-art approaches both on canonical setups, where atypical data points benefit performance, and few-shot learning scenarios, where atypical data points can be detrimental."
+  bibtex: |-
+    @inproceedings{agiollo2024memorization,
+      title     = {Approximating Memorization Using Loss Surface Geometry for Dataset Pruning and Summarization},
+      author    = {Agiollo, Andrea and Kim, Young In and Khanna, Rajiv},
+      booktitle = {Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD '24)},
+      pages     = {17--28},
+      year      = {2024},
+      publisher = {ACM},
+      doi       = {10.1145/3637528.3671985}
+    }
+
+- id: jaamas2024
+  type: journal
+  year: 2024
+  topics: [neurosymbolic, efficient]
+  keywords: ["Explainable AI", "Large Language Models", "Logic programs", "Post-hoc explanations", "Natural language processing"]
+  title: "From Large Language Models to Small Logic Programs: Building Global Explanations from Disagreeing Local Post-hoc Explainers"
+  authors: ["Andrea Agiollo", "Luciano Cavalcante Siebert", "Pradeep K. Murukannaiah", "Andrea Omicini"]
+  venue: "JAAMAS, 2024"
+  venue_full: "Autonomous Agents and Multi-Agent Systems (Springer), vol. 38, no. 2"
+  thumb: "/images/paper_thumbnails/jaamas2024_thumb.jpg"
+  thumb_alt: "First page of the paper"
+  links:
+    pdf: "https://link.springer.com/content/pdf/10.1007/s10458-024-09663-8.pdf"
+    code: "https://github.com/AndAgio/SKE_NLP"
+    results: "https://github.com/AndAgio/GELPE"
+    doi: "https://doi.org/10.1007/s10458-024-09663-8"
+  abstract: "The expressive power and effectiveness of large language models (LLMs) is going to increasingly push intelligent agents towards sub-symbolic models for natural language processing (NLP) tasks in human–agent interaction. However, LLMs are characterised by a performance vs. transparency trade-off that hinders their applicability to such sensitive scenarios. This is the main reason behind many approaches focusing on local post-hoc explanations, recently proposed by the XAI community in the NLP realm. However, to the best of our knowledge, a thorough comparison among available explainability techniques is currently missing, as well as approaches for constructing global post-hoc explanations leveraging the local information. This is why we propose a novel framework for comparing state-of-the-art local post-hoc explanation mechanisms and for extracting logic programs surrogating LLMs. Our experiments—over a wide variety of text classification tasks—show how most local post-hoc explainers are loosely correlated, highlighting substantial discrepancies in their results. By relying on the proposed novel framework, we also show how it is possible to extract faithful and efficient global explanations for the original LLM over multiple tasks, enabling explainable and resource-friendly AI techniques."
+  bibtex: |-
+    @article{AgiolloJaamas2024,
+      title     = {From Large Language Models to Small Logic Programs: Building Global Explanations from Disagreeing Local Post-hoc Explainers},
+      author    = {Agiollo, Andrea and Siebert, Luciano Cavalcante and Murukannaiah, Pradeep K. and Omicini, Andrea},
+      journal   = {Autonomous Agents and Multi-Agent Systems},
+      volume    = {38},
+      number    = {2},
+      pages     = {32},
+      year      = {2024},
+      publisher = {Springer},
+      doi       = {10.1007/s10458-024-09663-8}
+    }
+
+- id: csur2024
+  type: journal
+  year: 2024
+  topics: [neurosymbolic]
+  keywords: ["Symbolic knowledge extraction", "Symbolic knowledge injection", "Explainable AI", "Systematic review"]
+  title: "Symbolic Knowledge Extraction and Injection with Sub-symbolic Predictors: A Systematic Literature Review"
+  authors: ["Giovanni Ciatto", "Federico Sabbatini", "Andrea Agiollo", "Matteo Magnini", "Andrea Omicini"]
+  venue: "ACM Computing Surveys, 2024"
+  venue_full: "ACM Computing Surveys, vol. 56, no. 6"
+  thumb: "/images/paper_thumbnails/csur2024_thumb.jpg"
+  thumb_alt: "First page of the paper"
+  links:
+    pdf: "https://arxiv.org/abs/2501.14836"
+    doi: "https://doi.org/10.1145/3645103"
+  abstract: "In this article, we focus on the opacity issue of sub-symbolic machine learning predictors by promoting two complementary activities— symbolic knowledge extraction (SKE) and symbolic knowledge injection (SKI)—from and into sub-symbolic predictors. We consider as symbolic any language being intelligible and interpretable for both humans and computers. Accordingly, we propose general meta-models for both SKE and SKI, along with two taxonomies for the classification of SKE and SKI methods. By adopting an explainable artificial intelligence (XAI) perspective, we highlight how such methods can be exploited to mitigate the aforementioned opacity issue. Our taxonomies are attained by surveying and classifying existing methods from the literature, following a systematic approach, and by generalising the results of previous surveys targeting specific sub-topics of either SKE or SKI alone. More precisely, we analyse 132 methods for SKE and 117 methods for SKI, and we categorise them according to their purpose, operation, expected input/output data and predictor types. For each method, we also indicate the presence/lack of runnable software implementations. Our work may be of interest for data scientists aiming at selecting the most adequate SKE/SKI method for their needs, and may also work as suggestions for researchers interested in filling the gaps of the current state-of-the-art as well as for developers willing to implement SKE/SKI-based technologies."
+  bibtex: |-
+    @article{skeislr-acmcs,
+      title     = {Symbolic Knowledge Extraction and Injection with Sub-symbolic Predictors: A Systematic Literature Review},
+      author    = {Ciatto, Giovanni and Sabbatini, Federico and Agiollo, Andrea and Magnini, Matteo and Omicini, Andrea},
+      journal   = {ACM Computing Surveys},
+      volume    = {56},
+      number    = {6},
+      pages     = {161:1--161:35},
+      year      = {2024},
+      publisher = {ACM},
+      doi       = {10.1145/3645103}
+    }
+
+- id: fgcs2024enea
+  type: journal
+  year: 2024
+  topics: [distributed, efficient]
+  keywords: ["Federated learning", "Serverless computing", "Energy efficiency", "Orchestration"]
+  title: "EneA-FL: Energy-aware Orchestration for Serverless Federated Learning"
+  authors: ["Andrea Agiollo*", "Paolo Bellavista", "Matteo Mendula*", "Andrea Omicini"]
+  equal: true
+  equal_note: "Co-first authors"
+  venue: "FGCS, 2024"
+  venue_full: "Elsevier Future Generation Computer Systems, vol. 154"
+  thumb: "/images/paper_thumbnails/fgcs2024enea_thumb.jpg"
+  thumb_alt: "First page of the paper"
+  links:
+    pdf: "/files/papers/fgcs2024enea.pdf"
+    code: "https://github.com/AndAgio/EneA-FL"
+    doi: "https://doi.org/10.1016/j.future.2024.01.007"
+  abstract: "Federated Learning (FL) represents the de-facto standard paradigm for enabling distributed learning over multiple clients in real-world scenarios. Despite the great strides reached in terms of accuracy and privacy awareness, the real adoption of FL in real-world scenarios, in particular in industrial deployment environments, is still an open thread. This is mainly due to privacy constraints and to the additional complexity stemming from the set of hyperparameters to tune when employing AI techniques on bandwidth-, computing-, and energy-constrained nodes. Motivated by these issues, we focus on scenarios where participating clients are characterised by highly heterogeneous computing capabilities and energy budgets proposing EneA-FL, an innovative scheme for serverless smart energy management. This novel approach dynamically adapts to optimize the training process while fostering seamless interaction between Internet of Things (IoT) devices and edge nodes. In particular, the proposed middleware provides a containerised software module that efficiently manages the interaction of each worker node with the central aggregator. By monitoring local energy budget, computational capabilities, and target accuracy, EneA-FL intelligently takes informed decisions about the inclusion of specific nodes in the subsequent training rounds, effectively balancing the tripartite trade-off between energy consumption, training time, and final accuracy. Finally, in a series of extensive experiments across diverse scenarios, our solution demonstrates impressive results, achieving between 30% and 60% lower energy consumption against popular client selection approaches available in the literature while being up to 3.5 times more efficient than standard FL solutions."
+  bibtex: |-
+    @article{eneafl-fgcs154,
+      title     = {{EneA-FL}: Energy-aware Orchestration for Serverless Federated Learning},
+      author    = {Agiollo, Andrea and Bellavista, Paolo and Mendula, Matteo and Omicini, Andrea},
+      journal   = {Future Generation Computer Systems},
+      volume    = {154},
+      pages     = {219--234},
+      year      = {2024},
+      publisher = {Elsevier},
+      doi       = {10.1016/j.future.2024.01.007}
+    }
+
+- id: fgcs2024ndn
+  type: journal
+  year: 2024
+  topics: [privacy, distributed]
+  keywords: ["Federated learning", "Anonymity", "Named-Data Networking", "Linkability attacks"]
+  title: "Anonymous Federated Learning via Named-Data Networking"
+  authors: ["Andrea Agiollo*", "Enkeleda Bardhi*", "Mauro Conti", "Nicolò Dal Fabbro*", "Riccardo Lazzeretti"]
+  equal: true
+  equal_note: "Co-first authors"
+  venue: "FGCS, 2024"
+  venue_full: "Elsevier Future Generation Computer Systems, vol. 152"
+  thumb: "/images/paper_thumbnails/fgcs2024ndn_thumb.jpg"
+  thumb_alt: "First page of the paper"
+  links:
+    pdf: "/files/papers/fgcs2024ndn.pdf"
+    doi: "https://doi.org/10.1016/j.future.2023.11.009"
+  abstract: "Federated Learning (FL) represents the de facto approach for distributed training of machine learning models. Nevertheless, researchers have identified several security and privacy FL issues. Among these, the lack of anonymity exposes FL to linkability attacks, representing a risk for model alteration and worker impersonation, where adversaries can explicitly select the attack target, knowing its identity. Named-Data Networking (NDN) is a novel networking paradigm that decouples the data from its location, anonymising the users. NDN embodies a suitable solution to ensure workers’ privacy in FL, thus fixing the abovementioned issues. However, several issues must be addressed to fit FL logic in NDN semantics, such as missing push-based communication in NDN and anonymous NDN naming convention. To this end, this paper contributes a novel anonymous-by-design FL framework with a customised communication protocol leveraging NDN. The proposed communication scheme encompasses an ad-hoc FL-oriented naming convention and anonymity-driven forwarding and enrollment procedures. The anonymity and privacy requirements considered during the framework definition are fully satisfied through a detailed analysis of the framework’s robustness. Moreover, we compare the proposed mechanism and state-of-the-art anonymity solutions, focusing on the communication efficiency perspective. The simulation results show latency and training time improvements up to ∼30%, especially when dealing with large models, numerous federations, and complex networks."
+  bibtex: |-
+    @article{agiollo2023anonymous,
+      title     = {Anonymous Federated Learning via Named-Data Networking},
+      author    = {Agiollo, Andrea and Bardhi, Enkeleda and Conti, Mauro and Dal Fabbro, Nicol{\`o} and Lazzeretti, Riccardo},
+      journal   = {Future Generation Computer Systems},
+      volume    = {152},
+      pages     = {288--303},
+      year      = {2024},
+      publisher = {Elsevier},
+      doi       = {10.1016/j.future.2023.11.009}
+    }
+
+- id: jaamas2023
+  type: journal
+  year: 2023
+  topics: [neurosymbolic]
+  keywords: ["Symbolic knowledge injection", "Intelligent agents", "QoS metrics", "Neuro-symbolic integration"]
+  title: "Symbolic Knowledge Injection meets Intelligent Agents: QoS Metrics and Experiments"
+  authors: ["Andrea Agiollo*", "Andrea Rafanelli*", "Matteo Magnini*", "Giovanni Ciatto", "Andrea Omicini"]
+  equal: true
+  equal_note: "Co-first authors"
+  venue: "JAAMAS, 2023"
+  venue_full: "Autonomous Agents and Multi-Agent Systems (Springer), vol. 37, no. 2"
+  thumb: "/images/paper_thumbnails/jaamas2023_thumb.jpg"
+  thumb_alt: "First page of the paper"
+  links:
+    pdf: "https://link.springer.com/content/pdf/10.1007/s10458-023-09609-6.pdf"
+    code: "https://github.com/psykei/psyki-python"
+    doi: "https://doi.org/10.1007/s10458-023-09609-6"
+  abstract: "Bridging intelligent symbolic agents and sub-symbolic predictors is a long-standing research goal in AI. Among the recent integration efforts, symbolic knowledge injection (SKI) proposes algorithms aimed at steering sub-symbolic predictors’ learning towards compliance w.r.t. pre-existing symbolic knowledge bases. However, state-of-the-art contributions about SKI mostly tackle injection from a foundational perspective, often focussing solely on improving the predictive performance of the sub-symbolic predictors undergoing injection. Technical contributions, in turn, are tailored on individual methods/experiments and therefore poorly interoperable with agent technologies as well as among each others. Intelligent agents may exploit SKI to serve many purposes other than predictive performance alone—provided that, of course, adequate technological support exists: for instance, SKI may allow agents to tune computational, energetic, or data requirements of sub-symbolic predictors. Given that different algorithms may exist to serve all those many purposes, some criteria for algorithm selection as well as a suitable technology should be available to let agents dynamically select and exploit the most suitable algorithm for the problem at hand. Along this line, in this work we design a set of quality-of-service (QoS) metrics for SKI, and a general-purpose software API to enable their application to various SKI algorithms—namely, platform for symbolic knowledge injection (PSyKI). We provide an abstract formulation of four QoS metrics for SKI, and describe the design of PSyKI according to a software engineering perspective. Then we discuss how our QoS metrics are supported by PSyKI. Finally, we demonstrate the effectiveness of both our QoS metrics and PSyKI via a number of experiments, where SKI is both applied and assessed via our proposed API. Our empirical analysis demonstrates both the soundness of our proposed metrics and the versatility of PSyKI as the first software tool supporting the application, interchange, and numerical assessment of SKI techniques. To the best of our knowledge, our proposals represent the first attempt to introduce QoS metrics for SKI, and the software tools enabling their practical exploitation for both human and computational agents. In particular, our contributions could be exploited to automate and/or compare the manifold SKI algorithms from the state of the art. Hence moving a concrete step forward the engineering of efficient, robust, and trustworthy software applications that integrate symbolic agents and sub-symbolic predictors."
+  bibtex: |-
+    @article{skiqos-jaamas2023,
+      title     = {Symbolic Knowledge Injection meets Intelligent Agents: {QoS} Metrics and Experiments},
+      author    = {Agiollo, Andrea and Rafanelli, Andrea and Magnini, Matteo and Ciatto, Giovanni and Omicini, Andrea},
+      journal   = {Autonomous Agents and Multi-Agent Systems},
+      volume    = {37},
+      number    = {2},
+      pages     = {27:1--27:30},
+      year      = {2023},
+      publisher = {Springer},
+      doi       = {10.1007/s10458-023-09609-6}
+    }
+
+- id: eurosp2023
+  type: conference
+  year: 2023
+  topics: [security]
+  keywords: ["Interest flooding attacks", "Graph Neural Networks", "Information-Centric Networking", "DDoS detection"]
+  title: "GNN4IFA: Interest Flooding Attack Detection with Graph Neural Networks"
+  authors: ["Andrea Agiollo*", "Enkeleda Bardhi*", "Mauro Conti", "Riccardo Lazzeretti", "Eleonora Losiouk", "Andrea Omicini"]
+  equal: true
+  equal_note: "Co-first authors"
+  venue: "IEEE EuroS&P 2023"
+  venue_full: "8th IEEE European Symposium on Security and Privacy"
+  thumb: "/images/paper_thumbnails/eurosp2023_thumb.jpg"
+  thumb_alt: "First page of the paper"
+  links:
+    code: "https://github.com/AndAgio/GNN_4_IFA"
+    doi: "https://doi.org/10.1109/EuroSP57164.2023.00043"
+  abstract: "In the context of Information-Centric Networking, Interest Flooding Attacks (IFAs) represent a new and dangerous sort of distributed denial of service. Since existing proposals targeting IFAs mainly focus on local information, in this paper we propose GNN4IFA as the first mechanism exploiting complex non-local knowledge for IFA detection by leveraging Graph Neural Networks (GNNs) handling the overall network topology.In order to test GNN4IFA, we collect SPOTIFAI, a novel dataset filling the current lack of available IFA datasets by covering a variety of IFA setups, including ~40 heterogeneous scenarios over three network topologies. We show that GNN4IFA performs well on all tested topologies and setups, reaching over 99% detection rate along with a negligible false positive rate and small computational costs. Overall, GNN4IFA overcomes state-of-the-art detection mechanisms both in terms of raw detection and flexibility, and – unlike all previous solutions in the literature – also enables the transfer of its detection on network topologies different from the one used in its design phase."
+  bibtex: |-
+    @inproceedings{gnn4ifa-eurosp2023,
+      title     = {{GNN4IFA}: Interest Flooding Attack Detection with Graph Neural Networks},
+      author    = {Agiollo, Andrea and Bardhi, Enkeleda and Conti, Mauro and Lazzeretti, Riccardo and Losiouk, Eleonora and Omicini, Andrea},
+      booktitle = {2023 IEEE 8th European Symposium on Security and Privacy (EuroS\&P)},
+      pages     = {615--630},
+      year      = {2023},
+      publisher = {IEEE},
+      doi       = {10.1109/EuroSP57164.2023.00043}
+    }
+
+- id: fedcsis2023
+  type: conference
+  year: 2023
+  topics: [neurosymbolic]
+  keywords: ["Neuro-symbolic integration", "Trustworthy AI", "Evaluation metrics", "Interpretability"]
+  title: "Measuring Trustworthiness in Neuro-Symbolic Integration"
+  authors: ["Andrea Agiollo", "Andrea Omicini"]
+  venue: "FedCSIS 2023"
+  venue_full: "18th Conference on Computer Science and Intelligence Systems"
+  thumb: "/images/paper_thumbnails/fedcsis2023_thumb.jpg"
+  thumb_alt: "First page of the paper"
+  links:
+    pdf: "https://annals-csis.org/proceedings/2023/drp/pdf/6019.pdf"
+    doi: "https://doi.org/10.15439/2023F6019"
+  abstract: "Neuro-symbolic integration of symbolic and subsymbolic techniques represents a fast-growing AI trend aimed at mitigating the issues of neural networks in terms of decision processes, reasoning, and interpretability.Several state-of-theart neuro-symbolic approaches aim at improving performance, most of them focusing on proving their effectiveness in terms of raw predictive performance and/or reasoning capabilities.Meanwhile, few efforts have been devoted to increasing model trustworthiness, interpretability, and efficiency-mostly due to the complexity of measuring effectively improvements in terms of trustworthiness and interpretability.This is why here we analyse and discuss the need for ad-hoc trustworthiness metrics for neurosymbolic techniques.We focus on two popular paradigms mixing subsymbolic computation and symbolic knowledge, namely: (i) symbolic knowledge extraction (SKE), aimed at mapping subsymbolic models into human-interpretable knowledge bases; and (ii) symbolic knowledge injection (SKI), aimed at forcing subsymbolic models to adhere to a given symbolic knowledge.We first emphasise the need for assessing neuro-symbolic approaches from a trustworthiness perspective, highlighting the research challenges linked with this evaluation and the need for ad-hoc trust definitions.Then we summarise recent developments in SKE and SKI metrics focusing specifically on several trustworthiness pillars such as interpretability, efficiency, and robustness of neuro-symbolic methods.Finally, we highlight open research opportunities towards reliable and flexible trustworthiness metrics for neuro-symbolic integration."
+  bibtex: |-
+    @inproceedings{keynote-fedcsis2023,
+      title     = {Measuring Trustworthiness in Neuro-Symbolic Integration},
+      author    = {Agiollo, Andrea and Omicini, Andrea},
+      booktitle = {Proceedings of the 18th Conference on Computer Science and Intelligence Systems (FedCSIS)},
+      series    = {Annals of Computer Science and Information Systems},
+      volume    = {35},
+      pages     = {1--10},
+      year      = {2023},
+      doi       = {10.15439/2023F6019}
+    }
+
+- id: woa2023
+  type: workshop
+  year: 2023
+  topics: [distributed]
+  keywords: ["Federated learning", "Non-IID data", "Convergence", "Model aggregation"]
+  title: "Peer-Reviewed Federated Learning"
+  authors: ["Mattia Passeri", "Andrea Agiollo", "Andrea Omicini"]
+  venue: "WOA 2023"
+  venue_full: "24th Workshop “From Objects to Agents”, CEUR Workshop Proceedings, vol. 3579"
+  thumb: "/images/paper_thumbnails/woa2023_thumb.jpg"
+  thumb_alt: "First page of the paper"
+  links:
+    pdf: "https://ceur-ws.org/Vol-3579/paper4.pdf"
+    code: "https://github.com/passerim/peer-review-flower"
+  abstract: "While representing the de-facto framework for enabling distributed training of Machine Learning models, Federated Learning (FL) still suffers convergence issues when non-Independent and Identically Distributed (non-IID) data are considered. In this context, the local model optimisation on different data distributions generate dissimilar updates, which are difficult to aggregate and translate into sub-optimal convergence. To tackle this issues, we propose Peer-Reviewed Federated Learning (PRFL), an extension of the traditional FL training process inspired by the peer-review procedure common in the academic field, where model updates are reviewed by several other clients in the federation before being aggregated at the server-side. PRFL aims at enabling the identification of relevant updates, while disregarding the ineffective ones. We implement PRFL on top of the Flower FL library, and make Peer-Reviewed Flower a publicly-available library for the modular implementation of any review-based FL algorithm. A preliminary case study on both regression and classification tasks highlights the potential of PRFL, showcasing how the distributed solution can achieve performance similar to that obtained by the corresponding centralised algorithm, even when non-IID data are considered."
+  bibtex: |-
+    @inproceedings{prfl-woa2023,
+      title     = {Peer-Reviewed Federated Learning},
+      author    = {Passeri, Mattia and Agiollo, Andrea and Omicini, Andrea},
+      booktitle = {WOA 2023 -- 24th Workshop ``From Objects to Agents''},
+      series    = {CEUR Workshop Proceedings},
+      volume    = {3579},
+      pages     = {49--65},
+      year      = {2023},
+      url       = {https://ceur-ws.org/Vol-3579/paper4.pdf}
+    }
+
+- id: extraamas2023
+  type: workshop
+  year: 2023
+  topics: [neurosymbolic]
+  keywords: ["Explainable AI", "Post-hoc explainers", "Large Language Models", "Natural language processing", "Moral values classification"]
+  title: "The Quarrel of Local Post-hoc Explainers for Moral Values Classification in Natural Language Processing"
+  authors: ["Andrea Agiollo", "Luciano Cavalcante Siebert", "Pradeep K. Murukannaiah", "Andrea Omicini"]
+  venue: "EXTRAAMAS 2023"
+  venue_full: "5th International Workshop on Explainable and Transparent AI and Multi-Agent Systems, Springer LNCS"
+  thumb: "/images/paper_thumbnails/extraamas2023_thumb.jpg"
+  thumb_alt: "First page of the paper"
+  links:
+    code: "https://github.com/AndAgio/SKE_NLP"
+    doi: "https://doi.org/10.1007/978-3-031-40878-6_6"
+  abstract: "Although popular and effective, large language models (LLM) are characterised by a performance vs. transparency trade-off that hinders their applicability to sensitive scenarios. This is the main reason behind many approaches focusing on local post-hoc explanations recently proposed by the XAI community. However, to the best of our knowledge, a thorough comparison among available explainability techniques is currently missing, mainly for the lack of a general metric to measure their benefits. We compare state-of-the-art local post-hoc explanation mechanisms for models trained over moral value classification tasks based on a measure of correlation. By relying on a novel framework for comparing global impact scores, our experiments show how most local post-hoc explainers are loosely correlated, and highlight huge discrepancies in their results—their “quarrel” about explanations. Finally, we compare the impact scores distribution obtained from each local post-hoc explainer with human-made dictionaries, and point out that there is no correlation between explanation outputs and the concepts humans consider as salient."
+  bibtex: |-
+    @incollection{quarrel-extraamas2023,
+      title     = {The Quarrel of Local Post-hoc Explainers for Moral Values Classification in Natural Language Processing},
+      author    = {Agiollo, Andrea and Siebert, Luciano Cavalcante and Murukannaiah, Pradeep K. and Omicini, Andrea},
+      booktitle = {Explainable and Transparent AI and Multi-Agent Systems (EXTRAAMAS 2023)},
+      series    = {Lecture Notes in Computer Science},
+      pages     = {97--115},
+      year      = {2023},
+      publisher = {Springer},
+      doi       = {10.1007/978-3-031-40878-6_6}
+    }
+
+- id: uai2022
+  type: conference
+  year: 2022
+  topics: [efficient]
+  keywords: ["Graph Neural Networks", "Neural architecture generation", "Adversarial training", "Generative models"]
+  title: "GNN2GNN: Graph Neural Networks to Generate Neural Networks"
+  authors: ["Andrea Agiollo", "Andrea Omicini"]
+  venue: "UAI 2022"
+  venue_full: "38th Conference on Uncertainty in Artificial Intelligence, PMLR vol. 180"
+  thumb: "/images/paper_thumbnails/uai2022_thumb.jpg"
+  thumb_alt: "First page of the paper"
+  links:
+    paper: "https://proceedings.mlr.press/v180/agiollo22a.html"
+    pdf: "https://proceedings.mlr.press/v180/agiollo22a/agiollo22a.pdf"
+    code: "https://github.com/AndAgio/GNN-2-GNN"
+  abstract: "The success of neural networks (NNs) is tightly linked with their architectural design—a complex problem by itself. We here introduce a novel framework leveraging Graph Neural Networks to Generate Neural Networks (GNN2GNN) where powerful NN architectures can be learned out of a set of available architecture-performance pairs. GNN2GNN relies on a three-way adversarial training of GNN, to optimise a generator model capable of producing predictions about powerful NN architectures. Unlike Neural Architecture Search (NAS) techniques proposing efficient searching algorithms over a set of NN architec- tures, GNN2GNN relies on learning NN architectural design criteria. GNN2GNN learns to propose NN architectures in a single step – i.e., training of the generator –, overcoming the recursive approach characterising NAS. Therefore, GNN2GNN avoids the expensive and inflexible search of efficient structures typical of NAS approaches. Extensive experiments over two state-of-the-art datasets prove the strength of our framework, showing that it can generate powerful architectures with high probability. Moreover, GNN2GNN outperforms possible counterparts for generating NN architectures, and shows flexibility against dataset quality degradation. Finally, GNN2GNN paves the way towards generalisation between datasets."
+  bibtex: |-
+    @inproceedings{agiollo2022gnn2gnn,
+      title     = {{GNN2GNN}: Graph Neural Networks to Generate Neural Networks},
+      author    = {Agiollo, Andrea and Omicini, Andrea},
+      booktitle = {Proceedings of the 38th Conference on Uncertainty in Artificial Intelligence (UAI)},
+      series    = {Proceedings of Machine Learning Research},
+      volume    = {180},
+      pages     = {32--42},
+      year      = {2022},
+      publisher = {PMLR},
+      url       = {https://proceedings.mlr.press/v180/agiollo22a.html}
+    }
+
+- id: woa2022
+  type: workshop
+  year: 2022
+  topics: [neurosymbolic]
+  keywords: ["Symbolic knowledge injection", "QoS metrics", "Sub-symbolic predictors", "Neuro-symbolic integration"]
+  title: "Towards Quality-of-Service Metrics for Symbolic Knowledge Injection"
+  authors: ["Andrea Agiollo*", "Andrea Rafanelli*", "Andrea Omicini"]
+  equal: true
+  venue: "WOA 2022"
+  venue_full: "23rd Workshop “From Objects to Agents”, CEUR Workshop Proceedings, vol. 3261"
+  thumb: "/images/paper_thumbnails/woa2022_thumb.jpg"
+  thumb_alt: "First page of the paper"
+  links:
+    pdf: "https://ceur-ws.org/Vol-3261/paper3.pdf"
+  abstract: "The integration of symbolic knowledge and sub-symbolic predictors represents a recent popular trend in AI. Among the set of integration approaches, Symbolic Knowledge Injection (SKI) proposes the exploitation of human-intelligible knowledge to steer sub-symbolic models towards some desired behaviour. The vast majority of works in the field of SKI aim at increasing the predictive performance of the sub-symbolic model at hand and, therefore, measure SKI strength solely based on performance improvements. However, a variety of artefacts exist that affect this measure, mostly linked to the quality of the injected knowledge and the underlying predictor. Moreover, the use of injection techniques introduces the possibility of producing more efficient sub-symbolic models in terms of computations, energy, and data required. Therefore, novel and reliable Quality-of-Service (QoS) measures for SKI are clearly needed, aiming at robustly identifying the overall quality of an injection mechanism. Accordingly, in this work, we propose and mathematically model the first – up to our knowledge – set of QoS metrics for SKI, focusing on measuring injection robustness and efficiency gain."
+  bibtex: |-
+    @inproceedings{agiollo2022towards,
+      title     = {Towards Quality-of-Service Metrics for Symbolic Knowledge Injection},
+      author    = {Agiollo, Andrea and Rafanelli, Andrea and Omicini, Andrea},
+      booktitle = {WOA 2022 -- 23rd Workshop ``From Objects to Agents''},
+      series    = {CEUR Workshop Proceedings},
+      volume    = {3261},
+      pages     = {30--47},
+      year      = {2022},
+      url       = {https://ceur-ws.org/Vol-3261/paper3.pdf}
+    }
+
+- id: tnsm2021
+  type: journal
+  year: 2021
+  topics: [security]
+  keywords: ["RPL routing attacks", "IoT security", "Intrusion detection", "Low-power lossy networks"]
+  title: "DETONAR: Detection of Routing Attacks in RPL-based IoT"
+  authors: ["Andrea Agiollo", "Mauro Conti", "Pallavi Kaliyar", "Tsung-Nan Lin", "Luca Pajola"]
+  venue: "IEEE TNSM, 2021"
+  venue_full: "IEEE Transactions on Network and Service Management, vol. 18, no. 2"
+  thumb: "/images/paper_thumbnails/tnsm2021_thumb.jpg"
+  thumb_alt: "First page of the paper"
+  links:
+    code: "https://github.com/AndAgio/DETONAR"
+    doi: "https://doi.org/10.1109/TNSM.2021.3075496"
+  abstract: "The Internet of Things (IoT) is a reality that changes several aspects of our daily life, from smart home monitoring to the management of critical infrastructure. The “Routing Protocol for low power and Lossy networks” (RPL) is the only de-facto standardized routing protocol in IoT networks and is thus deployed in environmental monitoring, healthcare, smart building, and many other IoT applications. In literature, we can find several attacks aiming to affect and disrupt RPL-based networks. Therefore, it is fundamental to develop security mechanisms that detect and mitigate any potential attack in RPL-based networks. Current state-of-the-art security solutions deal with very few attacks while introducing heavy mechanisms at the expense of IoT devices and the overall network performance. In this work, we aim to develop an Intrusion Detection System (IDS) capable of dealing with multiple attacks while avoiding any RPL overhead. The proposed system is called DETONAR - DETector of rOutiNg Attacks in Rpl - and it relies on a packet sniffing approach. DETONAR uses a combination of signature and anomaly-based rules to identify any malicious behavior in the traffic (e.g., application and DIO packets). To the best of our knowledge, there are no exhaustive datasets containing RPL traffic for a vast range of attacks. To overcome this issue and evaluate our IDS, we propose RADAR - Routing Attacks DAtaset for Rpl: the dataset contains five simulations for each of the 14 considered attacks in 16 static-nodes networks. DETONAR’s attack detection exceeds 80% for 10 attacks out of 14, while maintaining false positives close to zero."
+  bibtex: |-
+    @article{detonar-ieetnsm2021,
+      title     = {{DETONAR}: Detection of Routing Attacks in {RPL}-based {IoT}},
+      author    = {Agiollo, Andrea and Conti, Mauro and Kaliyar, Pallavi and Lin, Tsung-Nan and Pajola, Luca},
+      journal   = {IEEE Transactions on Network and Service Management},
+      volume    = {18},
+      number    = {2},
+      pages     = {1178--1190},
+      year      = {2021},
+      publisher = {IEEE},
+      doi       = {10.1109/TNSM.2021.3075496}
+    }
+
+- id: applsci2021
+  type: journal
+  year: 2021
+  topics: [efficient]
+  keywords: ["Embedded AI", "Resource-constrained devices", "Neural networks", "Load classification"]
+  title: "Load Classification: A Case Study for Applying Neural Networks in Hyper-Constrained Embedded Devices"
+  authors: ["Andrea Agiollo", "Andrea Omicini"]
+  venue: "Applied Sciences, 2021"
+  venue_full: "MDPI Applied Sciences, vol. 11, no. 24"
+  thumb: "/images/paper_thumbnails/applsci2021_thumb.jpg"
+  thumb_alt: "First page of the paper"
+  links:
+    pdf: "/files/papers/applsci2021.pdf"
+    doi: "https://doi.org/10.3390/app112411957"
+  abstract: "The application of Artificial Intelligence to the industrial world and its appliances has recently grown in popularity. Indeed, AI techniques are now becoming the de-facto technology for the resolution of complex tasks concerning computer vision, natural language processing and many other areas. In the last years, most of the the research community efforts have focused on increasing the performance of most common AI techniques—e.g., Neural Networks, etc.—at the expenses of their complexity. Indeed, many works in the AI field identify and propose hyper-efficient techniques, targeting high-end devices. However, the application of such AI techniques to devices and appliances which are characterised by limited computational capabilities, remains an open research issue. In the industrial world, this problem heavily targets low-end appliances, which are developed focusing on saving costs and relying on—computationally—constrained components. While some efforts have been made in this area through the proposal of AI-simplification and AI-compression techniques, it is still relevant to study which available AI techniques can be used in modern constrained devices. Therefore, in this paper we propose a load classification task as a case study to analyse which state-of-the-art NN solutions can be embedded successfully into constrained industrial devices. The presented case study is tested on a simple microcontroller, characterised by very poor computational performances—i.e., FLOPS –, to mirror faithfully the design process of low-end appliances. A handful of NN models are tested, showing positive outcomes and possible limitations, and highlighting the complexity of AI embedding."
+  bibtex: |-
+    @article{nnconstrained-applsci11,
+      title     = {Load Classification: A Case Study for Applying Neural Networks in Hyper-Constrained Embedded Devices},
+      author    = {Agiollo, Andrea and Omicini, Andrea},
+      journal   = {Applied Sciences},
+      volume    = {11},
+      number    = {24},
+      pages     = {11957},
+      year      = {2021},
+      publisher = {MDPI},
+      doi       = {10.3390/app112411957}
+    }
+
+- id: woa2021
+  type: workshop
+  year: 2021
+  topics: [neurosymbolic]
+  keywords: ["Graph Neural Networks", "Computational logic", "Knowledge representation", "Neuro-symbolic integration", "Roadmap"]
+  title: "Graph Neural Networks as the Copula Mundi between Logic and Machine Learning: A Roadmap"
+  authors: ["Andrea Agiollo", "Giovanni Ciatto", "Andrea Omicini"]
+  venue: "WOA 2021"
+  venue_full: "22nd Workshop “From Objects to Agents”, CEUR Workshop Proceedings, vol. 2963"
+  thumb: "/images/paper_thumbnails/woa2021_thumb.jpg"
+  thumb_alt: "First page of the paper"
+  links:
+    pdf: "https://ceur-ws.org/Vol-2963/paper18.pdf"
+  abstract: "Combining machine learning (ML) and computational logic (CL) is hard, mostly because of the inherently- different ways they use to represent knowledge. In fact, while ML relies on fixed-size numeric repre- sentations leveraging on vectors, matrices, or tensors of real numbers, CL relies on logic terms and clauses—which are unlimited in size and structure. Graph neural networks (GNN) are a novelty in the ML world introduced for dealing with graph- structured data in a sub-symbolic way. In other words, GNN pave the way towards the application of ML to logic clauses and knowledge bases. However, there are several ways to encode logic knowledge into graphs: which is the best one heavily depends on the specific task at hand. Accordingly, in this paper, we (i) elicit a number of problems from the field of CL that may benefit from many graph-related problems where GNN has been proved effective; (ii) exemplify the application of GNN to logic theories via an end-to-end toy example, to demonstrate the many intricacies hidden behind the technique; (iii) discuss the possible future directions of the application of GNN to CL in general, pointing out opportunities and open issues."
+  bibtex: |-
+    @inproceedings{gnn-woa2021,
+      title     = {Graph Neural Networks as the Copula Mundi between Logic and Machine Learning: A Roadmap},
+      author    = {Agiollo, Andrea and Ciatto, Giovanni and Omicini, Andrea},
+      booktitle = {WOA 2021 -- 22nd Workshop ``From Objects to Agents''},
+      series    = {CEUR Workshop Proceedings},
+      volume    = {2963},
+      pages     = {98--115},
+      year      = {2021},
+      url       = {https://ceur-ws.org/Vol-2963/paper18.pdf}
+    }
+
+- id: extraamas2021
+  type: workshop
+  year: 2021
+  topics: [neurosymbolic, efficient]
+  keywords: ["Explainable AI", "Neural architecture search", "Neural network opacity", "Interpretability"]
+  title: "Shallow2Deep: Restraining Neural Networks Opacity through Neural Architecture Search"
+  authors: ["Andrea Agiollo", "Giovanni Ciatto", "Andrea Omicini"]
+  venue: "EXTRAAMAS 2021"
+  venue_full: "3rd International Workshop on Explainable and Transparent AI and Multi-Agent Systems, Springer LNCS"
+  thumb: "/images/paper_thumbnails/extraamas2021_thumb.jpg"
+  thumb_alt: "First page of the paper"
+  links:
+    code: "https://github.com/AndAgio/Shallow2Deep"
+    doi: "https://doi.org/10.1007/978-3-030-82017-6_5"
+  abstract: "Recently, the Deep Learning (DL) research community has focused on developing efficient and highly performing Neural Networks (NN). Meanwhile, the eXplainable AI (XAI) research community has focused on making Machine Learning (ML) and Deep Learning methods interpretable and transparent, seeking explainability. This work is a preliminary study on the applicability of Neural Architecture Search (NAS) (a sub-field of DL looking for automatic design of NN structures) in XAI. We propose Shallow2Deep, an evolutionary NAS algorithm that exploits local variability to restrain opacity of DL-systems through NN architectures simplification. Shallow2Deep effectively reduces NN complexity – therefore their opacity – while reaching state-of-the-art performances. Unlike its competitors, Shallow2Deep promotes variability of localised structures in NN, helping to reduce NN opacity. The proposed work analyses the role of local variability in NN architectures design, presenting experimental results that show how this feature is actually desirable."
+  bibtex: |-
+    @incollection{shallow2deep-extraamas2021,
+      title     = {{Shallow2Deep}: Restraining Neural Networks Opacity through Neural Architecture Search},
+      author    = {Agiollo, Andrea and Ciatto, Giovanni and Omicini, Andrea},
+      booktitle = {Explainable and Transparent AI and Multi-Agent Systems (EXTRAAMAS 2021)},
+      series    = {Lecture Notes in Computer Science},
+      pages     = {63--82},
+      year      = {2021},
+      publisher = {Springer},
+      doi       = {10.1007/978-3-030-82017-6_5}
+    }
+
+- id: icdsc2019
+  type: conference
+  year: 2019
+  topics: [efficient]
+  keywords: ["Computer vision", "RGB-D segmentation", "Region merging", "Convolutional neural networks", "Semantic labeling"]
+  title: "Region Merging Driven by Deep Learning for RGB-D Segmentation and Labeling"
+  authors: ["Umberto Michieli", "Maria Camporese", "Andrea Agiollo", "Giampaolo Pagnutti", "Pietro Zanuttigh"]
+  venue: "ICDSC 2019"
+  venue_full: "13th International Conference on Distributed Smart Cameras, ACM"
+  thumb: "/images/paper_thumbnails/icdsc2019_thumb.jpg"
+  thumb_alt: "First page of the paper"
+  links:
+    doi: "https://doi.org/10.1145/3349801.3349810"
+  abstract: "Among the various segmentation techniques, a widely used family of approaches are the ones based on region merging, where an initial oversegmentation is progressively refined by joining segments with similar characteristics. Instead of using deterministic approaches to decide which segments are going to be merged we propose to exploit a convolutional neural network which takes a couple of segments as input and decides whether to join or not the segments. We fitted this idea into an existent iterative semantic segmentation scheme for RGB-D data. We were able to lower the number of free parameters and to greatly speedup the procedure while achieving comparable or even higher results, thus allowing for its usage in free navigation systems. Furthermore, our method could be extended straightforwardly to other fields where region merging strategies are exploited."
+  bibtex: |-
+    @inproceedings{rgbdsemanticsegmentation-icdsc2019,
+      title     = {Region Merging Driven by Deep Learning for {RGB-D} Segmentation and Labeling},
+      author    = {Michieli, Umberto and Camporese, Maria and Agiollo, Andrea and Pagnutti, Giampaolo and Zanuttigh, Pietro},
+      booktitle = {Proceedings of the 13th International Conference on Distributed Smart Cameras (ICDSC)},
+      pages     = {9:1--9:6},
+      year      = {2019},
+      publisher = {ACM},
+      doi       = {10.1145/3349801.3349810}
+    }

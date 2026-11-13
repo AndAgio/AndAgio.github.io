@@ -25,32 +25,5 @@
     }
 </script>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
-  const keywordMap = {
-    "Neuro-Symbolic": { words: ["logic", "symbolic", "reasoning"], class: "tag-ns" },
-    "Security": { words: ["attack", "intrusion", "threat", "privacy"], class: "tag-sec" },
-    "Machine Learning": { words: ["learning", "model", "training", "dataset"], class: "tag-ml" },
-    "Graph": { words: ["graph", "gnn"], class: "tag-graph" },
-    "NLP": { words: ["language", "text", "llm"], class: "tag-nlp" },
-    "xAI": { words: ["explain", "interpret"], class: "tag-xai" },
-    "Optimization": { words: ["loss", "gradient", "minimization"], class: "tag-opt" }
-  };
-
-  document.querySelectorAll(".pub-tags").forEach(el => {
-
-    const text = el.dataset.abstract.toLowerCase();
-    const tags = [];
-
-    for (const [name, obj] of Object.entries(keywordMap)) {
-      if (obj.words.some(w => text.includes(w))) {
-        tags.push(`<span class="tag ${obj.class}">${name}</span>`);
-      }
-    }
-
-    el.innerHTML = tags.join(" ");
-  });
-
-});
-</script>
+<!-- Publication tags now come from `topics:` in _data/publications.yml
+     (see _data/topics.yml); the old keyword-guessing script was removed. -->

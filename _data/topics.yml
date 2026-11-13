@@ -1,0 +1,34 @@
+# Research themes for the Publications page (filter buttons + tags on each paper).
+# The five themes cover the research areas in the bio. A paper lists theme ids under `topics:` in
+# _data/publications.yml; free-text `keywords:` are shown on the card but are not filters.
+# The order here is the order of the buttons and tags.
+
+- id: privacy
+  name: Privacy & Memorization
+  kind: theme
+  emoji: "🔒"
+  color: "#7c5cc4"
+
+- id: neurosymbolic
+  name: Neuro-Symbolic & Explainable AI
+  kind: theme
+  emoji: "🧩"
+  color: "#1f6feb"
+
+- id: distributed
+  name: Distributed & Federated Learning
+  kind: theme
+  emoji: "🌐"
+  color: "#2f9e6a"
+
+- id: efficient
+  name: Efficient Learning
+  kind: theme
+  emoji: "⚡"
+  color: "#b26a00"
+
+- id: security
+  name: Cybersecurity
+  kind: theme
+  emoji: "🛡️"
+  color: "#d0555f"
