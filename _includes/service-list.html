@@ -7,8 +7,11 @@
                   location icon + where (co-location, city, dates)
     "position" -> title (Markdown, with link) / institution icon +
                   institution / description (small print)
+    "artifact" -> short name (linked) | one-line description
     (default)  -> role, if any, then the full name (linked if url) · note
   "event" and "position" rows have no short-name column (the header says it).
+  "event" also takes org (header text, default acronym), note, description.
+  Any row can set period: free text for the right-hand column.
   Usage: {% include service-list.html items=section.items layout=section.layout %}
 {% endcomment %}
 {%- assign layout = include.layout | default: "default" -%}
@@ -33,18 +36,25 @@
   {%- if it.note -%}{%- assign note = it.note | markdownify | remove: "<p>" | remove: "</p>" | strip -%}{%- else -%}{%- assign note = nil -%}{%- endif %}
   {%- assign ext = '<a class="svc-link" target="_blank" rel="noopener noreferrer" href=' %}
   <li class="svc-item">
-    {%- unless layout == "event" or layout == "position" %}
+    {%- if layout == "artifact" %}
+    <span class="svc-venue">{% if it.url %}{% assign first_char = it.url | slice: 0 %}<a class="svc-link" href="{{ it.url }}"{% unless first_char == "/" %} target="_blank" rel="noopener noreferrer"{% endunless %}>{{ it.acronym }}</a>{% else %}{{ it.acronym }}{% endif %}</span>
+    {%- elsif layout != "event" and layout != "position" %}
     <span class="svc-venue">{{ it.acronym }}</span>
-    {%- endunless %}
+    {%- endif %}
     <span class="svc-body">
       {%- if layout == "event" -%}
-      <span class="svc-head"><span class="svc-role">{{ it.role }}</span> <span class="svc-at">@</span> {% if it.url %}<a class="svc-link" href="{{ it.url }}" target="_blank" rel="noopener noreferrer">{{ it.acronym }}</a>{% else %}{{ it.acronym }}{% endif %}</span>
-      <span class="svc-fullname">{{ it.name }}</span>
+      {%- assign org = it.org | default: it.acronym -%}
+      <span class="svc-head"><span class="svc-role">{{ it.role }}</span> <span class="svc-at">@</span> {% if it.url %}<a class="svc-link" href="{{ it.url }}" target="_blank" rel="noopener noreferrer">{{ org }}</a>{% else %}{{ org }}{% endif %}</span>
+      {%- if it.name %}<span class="svc-fullname">{{ it.name | markdownify | remove: "<p>" | remove: "</p>" | strip }}</span>{% endif -%}
       {%- if it.where %}<span class="svc-where"><i class="fas fa-fw fa-location-dot" aria-hidden="true"></i>{{ it.where | markdownify | remove: "<p>" | remove: "</p>" | strip | replace: '<a href=', ext }}</span>{% endif -%}
+      {%- if note %}<span class="svc-detail">{{ note }}</span>{% endif -%}
+      {%- if it.description %}<span class="svc-desc">{{ it.description | markdownify | remove: "<p>" | remove: "</p>" | strip }}</span>{% endif -%}
       {%- elsif layout == "position" -%}
       <span class="svc-head">{{ it.title | markdownify | remove: "<p>" | remove: "</p>" | strip | replace: '<a href=', ext }}</span>
       <span class="svc-org"><i class="fas fa-fw fa-building-columns" aria-hidden="true"></i>{{ it.institution }}</span>
       {%- if it.description %}<span class="svc-desc">{{ it.description | markdownify | remove: "<p>" | remove: "</p>" | strip }}</span>{% endif -%}
+      {%- elsif layout == "artifact" -%}
+      <span class="svc-title">{{ it.name }}</span>
       {%- elsif it.role -%}
       <span class="svc-title svc-role">{{ it.role }}</span>
       <span class="svc-detail">{{ name }}{% if note %} · {{ note }}{% endif %}</span>
@@ -53,7 +63,7 @@
       {%- if note %}<span class="svc-detail">{{ note }}</span>{% endif -%}
       {%- endif -%}
     </span>
-    <span class="svc-years">{% if it.ongoing %}{{ ys.first }}–ongoing{% else %}{{ runs }}{% endif %}</span>
+    <span class="svc-years">{% if it.period %}{{ it.period }}{% elsif it.ongoing %}{{ ys.first }}–ongoing{% else %}{{ runs }}{% endif %}</span>
   </li>
 {%- endfor %}
 </ul>

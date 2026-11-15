@@ -1,0 +1,231 @@
+# CV page (_pages/cv.html; named curriculum.yml because the template's unused
+# _data/cv.json already takes "cv"). Source: the CV repo (cv/main.tex, v1.4, the master
+# record) and brand/profile.md. Layout modelled on giovanniapruzzese.com/cv,
+# in the same rows as the Service page (_includes/service-list.html).
+# When the CV changes: update this file AND replace files/research_cv_agiollo.pdf
+# with a fresh public build (see the public-image skill, references/cv.md).
+#
+# Left out on purpose (they are in the PDF): the profile paragraph (the home
+# page has the bio), the NWO Veni application (decision pending), and the
+# lists already on other pages (publications, talks, supervision, service).
+#
+# Fields as in _data/service.yml, plus:
+#   org     -> the "@ ..." part of the header (defaults to acronym)
+#   period  -> free text for the right-hand column (e.g. "Oct 2026–ongoing")
+#   description -> small print under the row
+
+pdf:
+  file: /files/research_cv_agiollo.pdf
+  download_name: Andrea_Agiollo_CV.pdf
+  version: November 2026
+  pages: 6
+
+sections:
+  - id: positions
+    title: Academic Positions
+    icon: briefcase
+    color: blue
+    layout: event
+    items:
+      - role: Postdoctoral Researcher
+        org: TU Delft
+        url: "https://www.tudelft.nl/en/"
+        name: Multimedia Computing Group, Faculty of EEMCS
+        where: Delft, the Netherlands
+        period: Oct 2026–ongoing
+        description: >-
+          Trustworthy and privacy-preserving graph learning, building on my work on memorization and
+          loss sharpness of machine learning models. Working with Dr. Megha Khosla.
+      - role: Postdoctoral Researcher
+        org: TU Delft
+        url: "https://www.tudelft.nl/en/"
+        name: Cybersecurity Group, Faculty of EEMCS
+        where: Delft, the Netherlands
+        period: Oct 2024–Sep 2026
+        description: >-
+          Trustworthy learning systems for cybersecurity: privacy and robustness of neuro-symbolic and
+          deep models against membership inference and backdoor attacks, and neuro-symbolic intrusion
+          detection grounded in structured threat knowledge such as attack graphs. Supervised three
+          MSc theses in this line.
+      - role: Visiting Research Scholar
+        org: Purdue University
+        url: "https://www.purdue.edu/"
+        where: West Lafayette, Indiana, USA
+        period: Aug 2023–Nov 2023
+        description: >-
+          Neuro-symbolic integration and the properties of neural network training, such as
+          memorization and the flatness of minima.
+      - role: Visiting Research Scholar
+        org: TU Delft
+        url: "https://www.tudelft.nl/en/"
+        name: Interactive Intelligence Group
+        where: Delft, the Netherlands
+        period: Oct 2022–Feb 2023
+        description: >-
+          Explainable AI techniques to extract knowledge from a trained large language model used for
+          text classification and morality alignment.
+
+  - id: education
+    title: Education
+    icon: graduation-cap
+    color: purple
+    layout: event
+    items:
+      - role: Ph.D. in Computer Science and Engineering
+        org: University of Bologna
+        url: "https://www.unibo.it/en/homepage"
+        name: "Thesis: *Embedding AI into Constrained Devices: A Multi-Faceted Approach*"
+        where: Bologna, Italy
+        period: Nov 2020–Jun 2024
+      - role: M.Sc. in ICT for Internet and Multimedia
+        org: University of Padua
+        url: "https://www.unipd.it/en/"
+        name: 110/110 cum laude · double degree with National Taiwan University
+        where: Padua, Italy
+        period: Sep 2018–Jul 2020
+      - role: M.Sc. in Communication Engineering
+        org: National Taiwan University
+        url: "https://www.ntu.edu.tw/english/"
+        name: GPA 4.23/4.3 · double degree with the University of Padua
+        where: Taipei, Taiwan
+        period: Sep 2018–Jul 2020
+      - role: B.Sc. in Information Engineering
+        org: University of Padua
+        url: "https://www.unipd.it/en/"
+        name: 110/110 cum laude
+        where: Padua, Italy
+        period: Oct 2015–Jul 2018
+      - role: Erasmus Exchange
+        org: University of Aberdeen
+        url: "https://www.abdn.ac.uk"
+        where: Aberdeen, Scotland, UK
+        period: Sep 2017–Jan 2018
+
+  - id: awards
+    title: Awards & Recognition
+    icon: award
+    color: amber
+    layout: event
+    items:
+      - role: Spotlight Paper
+        org: AISec
+        url: "https://aisec.cc/accepted-papers.html"
+        name: 19th ACM Workshop on Artificial Intelligence and Security
+        note: one of 8 spotlight papers out of 263 submissions
+        years: ["2026"]
+      - role: Gold Reviewer
+        org: ICML
+        url: "https://icml.cc/Conferences/2026/ProgramCommittee#gold"
+        name: 43rd International Conference on Machine Learning
+        years: ["2026"]
+      - role: Top Reviewer
+        org: ICML
+        url: "https://icml.cc/Conferences/2025"
+        name: 42nd International Conference on Machine Learning
+        years: ["2025"]
+      - role: Outstanding Reviewer
+        org: KDD
+        url: "https://kdd2025.kdd.org/"
+        name: 31st ACM SIGKDD Conference on Knowledge Discovery and Data Mining
+        years: ["2025"]
+      - role: Top Reviewer
+        org: UAI
+        url: "https://www.auai.org/uai2023/"
+        name: 39th Conference on Uncertainty in Artificial Intelligence
+        years: ["2023"]
+      - role: Double Degree Honours Student Award
+        org: University of Padua
+        url: "https://www.unipd.it/en/"
+        name: Master's degree programme
+        years: ["2020"]
+
+  - id: events
+    title: Invited Participation
+    icon: users
+    color: green
+    layout: event
+    items:
+      - role: Invited Participant
+        org: Dagstuhl Seminar 26421
+        url: "https://www.dagstuhl.de/26421"
+        name: Advancing Testability and Verifiability of CPS with Neurosymbolic and Large Language Models
+        where: Schloss Dagstuhl, Wadern, Germany · 11–16 October 2026
+        period: Oct 2026
+
+  - id: patent
+    title: Patent
+    icon: lightbulb
+    color: grey
+    layout: position
+    items:
+      # Safe public wording from brand/profile.md → Patent.
+      - title: "[Dishwasher for Treating Washware](https://patents.google.com/patent/US12569109B2/en)"
+        institution: With Electrolux Professional
+        years: ["2026"]
+        description: >-
+          US patent granted (US 12,569,109 B2, 2026); European and Chinese applications pending.
+          Inventors: Andrea Comina, Andrea Agiollo, Andrea Omicini. Developed during my PhD.
+
+  - id: software
+    title: Software & Artifacts
+    icon: code
+    color: red
+    layout: artifact
+    items:
+      - acronym: EneA-FL
+        url: "https://github.com/AndAgio/EneA-FL"
+        name: Energy-aware orchestration framework for serverless federated learning.
+      - acronym: MIABench
+        url: "https://github.com/AndAgio/mia_bench"
+        name: >-
+          Modular, scalable framework for benchmarking membership inference attacks, with distributed
+          training and sharpness-aware optimizers (e.g., SAM, ASAM, GSAM).
+      - acronym: PSyKI
+        url: "https://pypi.org/project/psyki/"
+        name: >-
+          Python library for symbolic knowledge injection into neural networks, released on PyPI
+          (second-largest contributor).
+      - acronym: SAMIS
+        url: "https://github.com/AndAgio/SAMIS"
+        name: Memorization estimation from loss-surface geometry for dataset pruning and summarization.
+      - acronym: DETONAR
+        url: "https://github.com/AndAgio/DETONAR"
+        name: >-
+          Intrusion detection for routing attacks in RPL-based IoT, with RADAR, a public dataset of
+          simulated RPL traffic covering 14 routing attacks.
+      - acronym: GNN4IFA
+        url: "https://github.com/AndAgio/GNN_4_IFA"
+        name: >-
+          Graph-neural-network detection of Interest Flooding Attacks in Named-Data Networking, with
+          SPOTIFAI, a public dataset of attacks simulated in ndnSIM on topologies of up to 163 nodes.
+
+  - id: skills
+    title: Skills & Languages
+    icon: screwdriver-wrench
+    color: grey
+    items:
+      - acronym: Languages
+        name: Italian (native) · English (C1) · Spanish (A1)
+      - acronym: Programming
+        name: Python, Java, C++ (advanced) · C, C#, MATLAB, Kotlin, Bash (intermediate)
+      - acronym: ML / DL
+        name: PyTorch, TensorFlow, scikit-learn (advanced) · Hugging Face, Keras (intermediate)
+
+  - id: more
+    title: More on This Website
+    icon: link
+    color: grey
+    layout: artifact
+    items:
+      - acronym: Publications
+        url: /publications/
+        name: 21 published papers, with abstracts, PDFs, code and BibTeX.
+      - acronym: Talks
+        url: /talks/
+        name: 15 talks and seminars, most with slides.
+      - acronym: Teaching
+        url: /teaching/
+        name: MSc and BSc thesis supervision, teaching and teaching development.
+      - acronym: Service
+        url: /service/
+        name: Organizing and chair roles, program committees, reviewing and institutional service.
