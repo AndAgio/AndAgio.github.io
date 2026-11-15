@@ -2,33 +2,35 @@
 # The five themes cover the research areas in the bio. A paper lists theme ids under `topics:` in
 # _data/publications.yml; free-text `keywords:` are shown on the card but are not filters.
 # The order here is the order of the buttons and tags.
+# Colours: shades of the site blue (palette in _sass/_custom.scss), darkest first;
+# written as CSS variables so they also switch in dark mode.
 
 - id: privacy
   name: Privacy & Memorization
   kind: theme
   emoji: "🔒"
-  color: "#7c5cc4"
+  color: "var(--b900)"
 
 - id: neurosymbolic
   name: Neuro-Symbolic & Explainable AI
   kind: theme
   emoji: "🧩"
-  color: "#1f6feb"
+  color: "var(--b800)"
 
 - id: distributed
   name: Distributed & Federated Learning
   kind: theme
   emoji: "🌐"
-  color: "#2f9e6a"
+  color: "var(--b700)"
 
 - id: efficient
   name: Efficient Learning
   kind: theme
   emoji: "⚡"
-  color: "#b26a00"
+  color: "var(--b600)"
 
 - id: security
   name: Cybersecurity
   kind: theme
   emoji: "🛡️"
-  color: "#d0555f"
+  color: "var(--b500)"

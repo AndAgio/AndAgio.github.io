@@ -9,24 +9,24 @@ redirect_from:
 
 {% comment %}
   Content lives in _data/curriculum.yml (from the CV repo, the master record).
-  Layout modelled on giovanniapruzzese.com/cv, in the same rows as the Service
-  page (_includes/service-list.html). The PDF is a public build of the CV
-  (no phone number or private address): files/research_cv_agiollo.pdf.
+  Styled like the PDF (LaTeX moderncv): dates in a left column, entries on the
+  right (_includes/cv-entries.html); styles in _sass/_custom.scss (.cvx-*).
+  The PDF is a public build of the CV (no phone number or private address):
+  files/research_cv_agiollo.pdf.
 {% endcomment %}
 {% assign c = site.data.curriculum %}
 
-<div class="cv-download">
-  <p class="page-intro">A summary of my academic career. The full CV, with all publications, talks and supervision, is available as a PDF.</p>
-  <div class="cv-download__actions">
-    <a class="cv-btn cv-btn--primary" href="{{ c.pdf.file }}" download="{{ c.pdf.download_name }}"><i class="fas fa-file-arrow-down" aria-hidden="true"></i>Download CV (PDF)</a>
-    <a class="cv-btn" href="{{ c.pdf.file }}" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>Open in a new tab</a>
-    <span class="cv-download__meta">{{ c.pdf.version }} · {{ c.pdf.pages }} pages</span>
-  </div>
+<p class="page-intro">A summary of my academic career. The full CV, with all publications, talks and supervision, is available as a PDF.</p>
+<div class="cvx-download">
+  <a class="cv-btn cv-btn--primary" href="{{ c.pdf.file }}" download="{{ c.pdf.download_name }}"><i class="fas fa-file-arrow-down" aria-hidden="true"></i>Download CV (PDF)</a>
+  <span class="cvx-download__meta">{{ c.pdf.pages }} pages · {{ c.pdf.version }}</span>
 </div>
 
+<div class="cvx">
 {% for sec in c.sections %}
-<section id="{{ sec.id }}" class="academic-section svc-section cv-section svc-c--{{ sec.color | default: 'grey' }}">
-  <h2 class="svc-h2"><span class="svc-h2__icon" aria-hidden="true"><i class="fas fa-{{ sec.icon }}"></i></span>{{ sec.title | escape }}</h2>
-  {% include service-list.html items=sec.items layout=sec.layout %}
+<section id="{{ sec.id }}" class="cvx-section">
+  <h2 class="cvx-h2"><span class="cvx-bar" aria-hidden="true"></span><span class="cvx-h2__text">{{ sec.title | escape }}</span></h2>
+  {% include cv-entries.html items=sec.items layout=sec.layout %}
 </section>
 {% endfor %}
+</div>

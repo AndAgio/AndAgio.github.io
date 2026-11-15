@@ -62,7 +62,7 @@
 
 /* optional: nicer link color */
 .pub-links a {
-  color: #1f6feb;
+  color: var(--b500);
   text-decoration: none;
 }
 
@@ -136,7 +136,7 @@ details summary {
   cursor: pointer;
   font-weight: 600;
 
-  color: #2b78eccf;   /* ✅ GitHub-like blue (works everywhere) */
+  color: var(--b500);   /* site palette */
 
   position: relative;
 }
@@ -199,9 +199,9 @@ details .bibtex-container {
   right: 6px;
 
   background: none;
-  border: 1px solid #1f6feb;
+  border: 1px solid var(--b500);
 
-  color: #1f6feb;
+  color: var(--b500);
 
   padding: 2px 7px;
   font-size: 0.75em;
@@ -213,7 +213,7 @@ details .bibtex-container {
 
 .copy-btn:hover {
   opacity: 1;
-  background: rgba(31, 111, 235, 0.08);
+  background: var(--b100);
 }
 
 
@@ -237,17 +237,56 @@ details .bibtex-container {
    site's light/dark theme variables.
 ========================================================== */
 
+/* ----------------------------------------------------------
+   SITE PALETTE (Andrea, 2026-11-15: "blue plus amber").
+   One deep blue in shades + the theme's grays; amber only for
+   awards and the spotlight badge. The blue ramp is ordered by
+   contrast with the page: --b900 is the strongest in BOTH modes
+   (navy in light, near-white blue in dark), --b100 the faintest
+   tint. Fills of --b500..--b900 take var(--global-bg-color) text,
+   which reads in both modes.
+---------------------------------------------------------- */
 :root {
-  --accent-blue: #1f6feb;
-  --accent-green: #2f9e6a;
-  --accent-amber: #c98a0b;
-  --accent-purple: #7c5cc4;
-  --accent-red: #d0555f;
+  --b900: #12304b;
+  --b800: #183f63;
+  --b700: #1d4f7a;
+  --b600: #255f92;
+  --b500: #2f6ea8;
+  --b300: #8fb3d6;
+  --b100: #e3ecf6;
+  --amber: #b7791f;
+  --amber-soft: #f6ead6;
+
+  --brand: var(--b700);           /* section titles, bars, heading icons */
+
+  /* the theme's link colours, brought into the palette */
+  --global-link-color: var(--b500);
+  --global-link-color-hover: var(--b700);
+  --global-link-color-visited: var(--b500);
+
+  /* older names, kept so existing rules follow the palette */
+  --accent-blue: var(--b500);
+  --accent-green: var(--b700);
+  --accent-purple: var(--b900);
+  --accent-red: var(--b600);
+  --accent-amber: var(--amber);
   --accent-grey: #8a94a3;
   --card-bg: rgba(0,0,0,0.025);
 }
 
 html[data-theme="dark"] {
+  --b900: #d6e5f4;
+  --b800: #b5cfea;
+  --b700: #8fb8e0;
+  --b600: #7aaad9;
+  --b500: #6a9dd2;
+  --b300: #3d6589;
+  --b100: rgba(143, 184, 224, 0.14);
+  --amber: #d9a441;
+  --amber-soft: rgba(217, 164, 65, 0.16);
+  --global-link-color: var(--b500);
+  --global-link-color-hover: var(--b700);
+  --global-link-color-visited: var(--b500);
   --card-bg: rgba(255,255,255,0.045);
 }
 
@@ -310,7 +349,7 @@ html[data-theme="dark"] {
 .academic-entry--current   { border-left-color: var(--accent-blue); }
 .academic-entry--completed { border-left-color: var(--accent-green); }
 .academic-entry--project   { border-left-color: var(--accent-purple); }
-.academic-entry--teaching  { border-left-color: var(--accent-amber); }
+.academic-entry--teaching  { border-left-color: var(--b600); }
 .academic-entry--training  { border-left-color: var(--accent-grey); }
 .academic-entry--award     { border-left-color: var(--accent-amber); }
 .academic-entry--talk      { border-left-color: var(--accent-blue); }
@@ -352,7 +391,7 @@ html[data-theme="dark"] {
   font-weight: 600;
   letter-spacing: 0.02em;
   border-radius: 999px;
-  color: #fff;
+  color: var(--global-bg-color);
   background: var(--accent-grey);
 }
 
@@ -360,8 +399,8 @@ html[data-theme="dark"] {
 .academic-label--invited-talk     { background: var(--accent-blue); }
 .academic-label--completed        { background: var(--accent-green); }
 .academic-label--honours,
-.academic-label--award,
-.academic-label--teaching         { background: var(--accent-amber); }
+.academic-label--award            { background: var(--amber); }
+.academic-label--teaching         { background: var(--b600); }
 .academic-label--project,
 .academic-label--dagstuhl-seminar { background: var(--accent-purple); }
 .academic-label--paper-presentation { background: var(--accent-red); }
@@ -378,7 +417,7 @@ html[data-theme="dark"] {
   text-decoration: none;
 }
 
-.academic-resource-link:hover { background: rgba(31,111,235,0.08); }
+.academic-resource-link:hover { background: var(--b100); }
 
 /* service rows (Service & Awards) */
 .service-list {
@@ -456,7 +495,7 @@ html[data-theme="dark"] {
 .pub-thumb__card--conference { border-top-color: var(--accent-blue); }
 .pub-thumb__card--journal    { border-top-color: var(--accent-green); }
 .pub-thumb__card--workshop   { border-top-color: var(--accent-purple); }
-.pub-thumb__card--chapter    { border-top-color: var(--accent-amber); }
+.pub-thumb__card--chapter    { border-top-color: var(--accent-grey); }
 
 .pub-thumb__venue {
   font-weight: 700;
@@ -481,8 +520,8 @@ html[data-theme="dark"] {
   font-style: normal;
   font-weight: 600;
   border-radius: 999px;
-  color: #fff;
-  background: var(--accent-amber);
+  color: var(--global-bg-color);
+  background: var(--amber);
 }
 
 .pub-item { scroll-margin-top: 80px; }
@@ -735,7 +774,7 @@ details .bibtex-container { transition: none; }
 .topic-chip.is-active {
   background: var(--topic-color);
   border-color: var(--topic-color);
-  color: #fff;
+  color: var(--global-bg-color);
 }
 .topic-chip--type.is-active {
   background: var(--global-text-color);
@@ -794,7 +833,7 @@ details .bibtex-container { transition: none; }
 .topic-tag--theme {
   background: var(--topic-color);
   border: 1px solid var(--topic-color);
-  color: #fff !important;
+  color: var(--global-bg-color) !important;
 }
 
 /* keywords: plain, non-interactive labels (deliberately unlike the theme tags) */
@@ -967,8 +1006,8 @@ details .bibtex-container { transition: none; }
   background: var(--card-bg);
 }
 
-.talk-color--phd-defence               { --topic-color: var(--accent-amber); }
-.talk-thumb__tile--phd-defence         { border-top-color: var(--accent-amber); }
+.talk-color--phd-defence               { --topic-color: var(--b800); }
+.talk-thumb__tile--phd-defence         { border-top-color: var(--b800); }
 
 /* Talks: smaller slide previews (Andrea, 2026-11-15) */
 .talk-thumb { flex: 0 0 160px; }
@@ -996,12 +1035,11 @@ details .bibtex-container { transition: none; }
    short name | text (see _includes/service-list.html) | years
 ---------------------------------------------------------- */
 /* one muted colour per section: heading icon + underline, group icons */
-.svc-section     { --svc-c: var(--accent-grey); }
-.svc-c--amber    { --svc-c: var(--accent-amber); }
-.svc-c--blue     { --svc-c: var(--accent-blue); }
-.svc-c--purple   { --svc-c: var(--accent-purple); }
-.svc-c--green    { --svc-c: var(--accent-green); }
-.svc-c--red      { --svc-c: var(--accent-red); }
+/* single palette (2026-11-15): every section uses the brand blue; the
+   colour names in _data/service.yml are kept but all map to it */
+.svc-section,
+.svc-c--amber, .svc-c--blue, .svc-c--purple,
+.svc-c--green, .svc-c--red, .svc-c--grey { --svc-c: var(--brand); }
 
 .svc-section > h2.svc-h2 {
   display: flex;
@@ -1018,7 +1056,7 @@ details .bibtex-container { transition: none; }
   height: 1.55em;
   font-size: 0.75em;
   border-radius: 6px;
-  color: #fff;
+  color: var(--global-bg-color);
   background: var(--svc-c);
 }
 
@@ -1145,15 +1183,17 @@ a.svc-link:hover { text-decoration-color: currentColor; }
 }
 
 /* ----------------------------------------------------------
-   CV page: download buttons; rows reuse the Service styles.
+   CV page, styled like the PDF (LaTeX moderncv): dates in a left
+   column, entries on the right, no boxes. Rows: _includes/cv-entries.html.
+   Colours come from the site palette (--brand, top of this file).
 ---------------------------------------------------------- */
-.cv-download { margin-bottom: 1.6em; }
-.cv-download .page-intro { margin-bottom: 0.8em; }
-.cv-download__actions {
+
+.cvx-download {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.6em 0.8em;
+  gap: 0.5em 0.9em;
+  margin: 0 0 2em;
 }
 .cv-btn {
   display: inline-flex;
@@ -1167,27 +1207,84 @@ a.svc-link:hover { text-decoration-color: currentColor; }
   color: var(--global-text-color) !important;
   border: 1px solid var(--global-border-color);
   border-radius: 6px;
-  transition: border-color 0.15s, background 0.15s;
+  transition: border-color 0.15s, opacity 0.15s;
 }
-.cv-btn:hover { border-color: var(--global-text-color); }
 .cv-btn--primary {
   color: var(--global-bg-color) !important;
   background: var(--global-text-color);
   border-color: var(--global-text-color);
 }
 .cv-btn--primary:hover { opacity: 0.88; }
-.cv-download__meta {
+.cvx-download__meta {
   font-size: 0.8em;
   color: var(--global-fig-caption-color);
 }
-/* a little more room for the short-name column (e.g. "Publications") */
-.cv-section .svc-list--artifact > .svc-item,
-.cv-section .svc-list--default > .svc-item {
-  grid-template-columns: 8em minmax(0, 1fr) auto;
+
+.cvx { --cvx-left: 8.5em; }
+.cvx-section { margin: 0 0 1.7em; }
+.cvx h2.cvx-h2 {
+  display: grid;
+  grid-template-columns: var(--cvx-left) minmax(0, 1fr);
+  column-gap: 1.2em;
+  align-items: center;
+  margin: 0 0 0.7em;
+  padding: 0;
+  font-size: 1.25em;
+  font-weight: 600;
+  color: var(--brand);
+  border: none;
 }
+.cvx-bar {
+  height: 0.32em;
+  border-radius: 1px;
+  background: var(--brand);
+}
+.cvx-entry {
+  display: grid;
+  grid-template-columns: var(--cvx-left) minmax(0, 1fr);
+  column-gap: 1.2em;
+  margin: 0 0 0.8em;
+  font-size: 0.9em;
+  line-height: 1.45;
+}
+.cvx-when {
+  padding-top: 0.08em;
+  text-align: right;
+  font-size: 0.9em;
+  font-variant-numeric: tabular-nums;
+  color: var(--global-fig-caption-color);
+}
+.cvx-when--label {
+  padding-top: 0;
+  font-size: 1em;
+  font-weight: 600;
+  color: var(--global-text-color);
+}
+.cvx-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0 1em;
+}
+.cvx-title { font-weight: 600; }
+.cvx-org { font-style: italic; }
+.cvx-loc {
+  font-size: 0.88em;
+  font-style: italic;
+  color: var(--global-fig-caption-color);
+}
+.cvx-sub { font-size: 0.95em; }
+.cvx-desc {
+  margin-top: 0.15em;
+  font-size: 0.84em;
+  color: var(--global-fig-caption-color);
+}
+/* phones: one column, dates above each entry */
 @media (max-width: 640px) {
-  .cv-section .svc-list--artifact > .svc-item,
-  .cv-section .svc-list--default > .svc-item {
-    grid-template-columns: minmax(0, 1fr) auto;
-  }
+  .cvx h2.cvx-h2 { grid-template-columns: 1fr; }
+  .cvx-bar { display: none; }
+  .cvx-entry { grid-template-columns: minmax(0, 1fr); }
+  .cvx-when { text-align: left; }
+  .cvx-when--label { margin-bottom: 0.1em; }
 }

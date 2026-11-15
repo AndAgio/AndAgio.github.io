@@ -1,0 +1,32 @@
+{% comment %}
+  CV page rows (/cv/), modelled on the PDF (LaTeX
+  moderncv): dates or a short name in a narrow left column, the entry on the
+  right, no boxes. Reads _data/curriculum.yml.
+  Usage: {% include cv-entries.html items=sec.items layout=sec.layout %}
+{% endcomment %}
+{%- assign layout = include.layout | default: "default" -%}
+{%- assign ext = '<a target="_blank" rel="noopener noreferrer" href=' -%}
+{%- for it in include.items %}
+<div class="cvx-entry">
+  {%- if layout == "artifact" or layout == "default" %}
+  <div class="cvx-when cvx-when--label">{% if it.url %}{% assign first_char = it.url | slice: 0 %}<a href="{{ it.url }}"{% unless first_char == "/" %} target="_blank" rel="noopener noreferrer"{% endunless %}>{{ it.acronym }}</a>{% else %}{{ it.acronym }}{% endif %}</div>
+  <div class="cvx-what"><span class="cvx-text">{{ it.name }}</span></div>
+  {%- else %}
+  <div class="cvx-when">{% if it.period %}{{ it.period }}{% elsif it.years %}{{ it.years | join: ", " }}{% endif %}</div>
+  <div class="cvx-what">
+    {%- if layout == "position" %}
+    <div class="cvx-head"><span class="cvx-title">{{ it.title | markdownify | remove: "<p>" | remove: "</p>" | strip | replace: '<a href=', ext }}</span></div>
+    <div class="cvx-sub">{{ it.institution }}</div>
+    {%- else %}
+    {%- assign org = it.org | default: it.acronym %}
+    <div class="cvx-head">
+      <span><span class="cvx-title">{{ it.role }}</span>, <span class="cvx-org">{% if it.url %}<a href="{{ it.url }}" target="_blank" rel="noopener noreferrer">{{ org }}</a>{% else %}{{ org }}{% endif %}</span></span>
+      {%- if it.where %}<span class="cvx-loc">{{ it.where | markdownify | remove: "<p>" | remove: "</p>" | strip | replace: '<a href=', ext }}</span>{% endif %}
+    </div>
+    {%- if it.name or it.note %}<div class="cvx-sub">{{ it.name | markdownify | remove: "<p>" | remove: "</p>" | strip }}{% if it.name and it.note %} · {% endif %}{{ it.note }}</div>{% endif %}
+    {%- endif %}
+    {%- if it.description %}<div class="cvx-desc">{{ it.description | markdownify | remove: "<p>" | remove: "</p>" | strip }}</div>{% endif %}
+  </div>
+  {%- endif %}
+</div>
+{%- endfor %}
