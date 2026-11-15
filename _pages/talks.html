@@ -1,16 +1,159 @@
 ---
 layout: archive
-title: "Talks and presentations"
+title: "Talks"
 permalink: /talks/
 author_profile: true
 ---
 
-{% if site.talkmap_link == true %}
+{% comment %}
+  The list lives in _data/talks.yml, newest first. The timeline sits in a box that
+  shows the 10 newest talks and scrolls for older ones (off on phones). Each talk:
+  date on the left, then the first slide (or a placeholder tile) and the details.
+  The type of each talk (Talk, Invited talk, ...) is a tag above the title and
+  also a filter: buttons at the top, or a click on a tag. Without JavaScript the
+  filter bar stays hidden and every talk is shown.
+{% endcomment %}
+{% assign talks = site.data.talks | sort: "date" | reverse %}
+{% assign type_groups = talks | group_by: "type" | sort: "size" | reverse %}
 
-<p style="text-decoration:underline;"><a href="/talkmap.html">See a map of all the places I've given a talk!</a></p>
+<p class="page-intro">
+  If you would like me to speak at your group or event, feel free to <a href="mailto:{{ site.author.email }}">get in touch</a>.
+</p>
 
-{% endif %}
+<div class="topic-filter" id="talk-filter" role="group" aria-label="Filter talks by type" hidden>
+  <div class="topic-filter__row">
+    <span class="topic-filter__label">Type</span>
+    {% for g in type_groups %}
+    <button type="button" class="topic-chip topic-chip--theme talk-color talk-color--{{ g.name | slugify }}" data-type="{{ g.name | slugify }}" aria-pressed="false">{{ g.name }} <span class="topic-chip__n">{{ g.size }}</span></button>
+    {% endfor %}
+  </div>
+  <p class="topic-filter__help">Click a type to show only those talks, or select several to see them together. The tag on each talk works the same way.</p>
+  <p class="topic-status" aria-live="polite">
+    <span id="talk-count">Showing all {{ talks.size }} talks</span>
+    <button type="button" class="topic-clear" id="talk-clear" hidden>Clear filters</button>
+  </p>
+</div>
 
-{% for post in site.talks reversed %}
-  {% include archive-single-talk.html %}
+<div class="news-scroll talk-scroll" id="talk-scroll" data-visible="10" role="region" aria-label="Talks, newest first">
+<ol class="talk-timeline">
+{% for t in talks %}
+  <li class="talk-item" data-type="{{ t.type | slugify }}">
+    <time class="talk-item__date" datetime="{{ t.date | date: '%Y-%m' }}">{% if t.when %}{{ t.when }}{% else %}{{ t.date | date: "%b %Y" }}{% endif %}</time>
+
+    <div class="talk-item__main{% unless t.thumb %} talk-item__main--nothumb{% endunless %}">
+      {% capture thumb_html %}
+        {% if t.thumb %}
+        <img src="{{ t.thumb | relative_url }}" alt="{{ t.thumb_alt | default: 'First slide of the talk' | escape }}" loading="lazy">
+        {% else %}
+        <span class="talk-thumb__tile talk-thumb__tile--{{ t.type | slugify }}">
+          <span class="talk-thumb__icon" aria-hidden="true">{% if t.type == "Seminar" %}🎓{% elsif t.type == "Paper presentation" %}📄{% else %}🎤{% endif %}</span>
+          {% unless t.slides %}<span class="talk-thumb__soon">(slides to be added soon)</span>{% endunless %}
+        </span>
+        {% endif %}
+      {% endcapture %}
+      {% if t.slides %}
+      <a class="talk-thumb" href="{{ t.slides }}" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">{{ thumb_html }}</a>
+      {% else %}
+      <span class="talk-thumb">{{ thumb_html }}</span>
+      {% endif %}
+
+      <div class="talk-content">
+        <div class="talk-tags">
+          <a class="topic-tag topic-tag--theme talk-color talk-color--{{ t.type | slugify }}" href="#{{ t.type | slugify }}" data-type="{{ t.type | slugify }}" title="Show all: {{ t.type | escape }}">{{ t.type }}</a>
+        </div>
+        <h3 class="talk-title">{{ t.title }}</h3>
+        {% if t.context %}<p class="talk-context"><em>{{ t.context }}</em></p>{% endif %}
+        {% if t.place %}<p class="talk-place">📍 {{ t.place }}</p>{% endif %}
+        <p class="talk-links">
+          {%- if t.slides %}<a href="{{ t.slides }}" target="_blank" rel="noopener noreferrer">🖥️ Slides (PDF)</a>{% else %}<span class="talk-soon-inline">(slides to be added soon)</span>{% endif -%}
+          {%- if t.link %}<span class="talk-links__sep"> · </span><a href="{{ t.link }}" target="_blank" rel="noopener noreferrer">🌐 Event page</a>{% endif -%}
+        </p>
+      </div>
+    </div>
+  </li>
 {% endfor %}
+</ol>
+</div>
+<p class="news-scroll-hint" id="talk-scroll-hint" hidden>Scroll inside the box for older talks &darr;</p>
+
+<script>
+  (function () {
+    var bar = document.getElementById("talk-filter");
+    if (!bar) return;
+    bar.hidden = false;
+    var countEl = document.getElementById("talk-count");
+    var clearBtn = document.getElementById("talk-clear");
+    var items = Array.prototype.slice.call(document.querySelectorAll(".talk-item"));
+    var chips = Array.prototype.slice.call(bar.querySelectorAll(".topic-chip"));
+    var known = chips.map(function (c) { return c.dataset.type; });
+    var selected = [];
+
+    // address format: #invited-talk,seminar
+    function fromHash() {
+      return decodeURIComponent(location.hash.slice(1)).split(",").filter(function (t) { return known.indexOf(t) >= 0; });
+    }
+
+    function apply(updateUrl) {
+      var shown = 0, last = null;
+      items.forEach(function (it) {
+        var on = !selected.length || selected.indexOf(it.dataset.type) >= 0;
+        it.hidden = !on;
+        it.classList.remove("is-last");
+        if (on) { shown++; last = it; }
+      });
+      if (last) last.classList.add("is-last");
+      chips.forEach(function (c) {
+        var on = selected.indexOf(c.dataset.type) >= 0;
+        c.classList.toggle("is-active", on);
+        c.setAttribute("aria-pressed", String(on));
+      });
+      Array.prototype.forEach.call(document.querySelectorAll(".talk-tags .topic-tag"), function (tg) {
+        tg.classList.toggle("is-active", selected.indexOf(tg.dataset.type) >= 0);
+      });
+      countEl.textContent = selected.length
+        ? "Showing " + shown + " of " + items.length + " talks"
+        : "Showing all " + items.length + " talks";
+      clearBtn.hidden = !selected.length;
+      if (updateUrl) history.replaceState(null, "", selected.length ? "#" + selected.join(",") : location.pathname);
+      box.scrollTop = 0;
+      fit();
+    }
+
+    // "Page in page": show the newest `visible` talks, scroll inside the box for
+    // older ones (like the home-page news). Off on phones and when few talks show.
+    var box = document.getElementById("talk-scroll");
+    var hint = document.getElementById("talk-scroll-hint");
+    var visible = parseInt(box.dataset.visible, 10) || 10;
+    var phone = window.matchMedia("(max-width: 768px)");
+    function fit() {
+      var shownItems = items.filter(function (it) { return !it.hidden; });
+      var on = !phone.matches && shownItems.length > visible;
+      box.classList.toggle("is-scrollable", on);
+      box.tabIndex = on ? 0 : -1;
+      hint.hidden = !on;
+      if (!on) { box.style.maxHeight = ""; return; }
+      var top = shownItems[visible].getBoundingClientRect().top - box.getBoundingClientRect().top + box.scrollTop;
+      box.style.maxHeight = (top + 28) + "px";
+    }
+    window.addEventListener("load", fit);
+    window.addEventListener("resize", fit);
+
+    document.addEventListener("click", function (e) {
+      var el = e.target.closest ? e.target.closest(".topic-chip, .topic-tag, #talk-clear") : null;
+      if (!el || !(bar.contains(el) || el.classList.contains("topic-tag"))) return;
+      e.preventDefault();
+      if (el === clearBtn) {
+        selected = [];
+      } else {
+        var i = selected.indexOf(el.dataset.type);
+        if (i >= 0) selected.splice(i, 1); else selected.push(el.dataset.type);
+      }
+      apply(true);
+      if (el.classList.contains("topic-tag")) bar.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    window.addEventListener("hashchange", function () { selected = fromHash(); apply(false); });
+    selected = fromHash();
+    apply(false);
+  })();
+</script>

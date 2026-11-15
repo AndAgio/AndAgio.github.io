@@ -1,0 +1,126 @@
+# Talks page (_pages/talks.html). Newest first. Talks before 10/2024 and their slides
+# come from APICe (apice.unibo.it, Andrea's UniBo talk archive), fetched 2026-11-15.
+# Fields: date (YYYY-MM-DD, only month + year shown), when (optional text that
+# replaces the shown date), type (label), title, context, place, link,
+# slides (PDF in files/slides/) and thumb (first slide, images/talk_thumbnails/).
+# No slides: the box says "(slides to be added soon)".
+# Slides mentioning papers under review: ask Andrea. On 2026-11-15 Andrea chose
+# to publish the TU Eindhoven and VU decks in full (no anonymity concern).
+# Not here: Dagstuhl Seminar 26421 (Oct 2026), an invitation, not a talk (Andrea,
+# 2026-11-13). It is a news item on the home page.
+
+- date: 2026-09-24
+  type: Talk
+  title: "The Geometry of Memorization: When Better Generalization Increases Privacy Risk"
+  context: 3rd ACCSS Security & AI Workshop
+  place: CVD Apeldoorn, Apeldoorn (NL)
+  link: https://secai-accss.github.io/workshop3
+  slides: /files/slides/accss2026.pdf
+  thumb: /images/talk_thumbnails/accss2026.jpg
+
+- date: 2026-04-24
+  type: Paper presentation
+  title: "Membership Privacy Risks of Sharpness Aware Minimization"
+  context: International Conference on Learning Representations (ICLR 2026), poster
+  place: Rio de Janeiro (BR)
+  link: https://proceedings.iclr.cc/paper_files/paper/2026/hash/82f77023563b21fbd423b2d9b165c281-Abstract-Conference.html
+
+- date: 2026-03-19
+  type: Invited talk
+  title: "The Best of Both Worlds: Fixing Data-Driven NIDS with Neuro-Symbolic Logic"
+  place: TU Eindhoven, Eindhoven (NL)
+  slides: /files/slides/tue2026.pdf
+  thumb: /images/talk_thumbnails/tue2026.jpg
+
+- date: 2025-06-23
+  type: Seminar
+  title: "Neuro-Symbolic AI: The What and Why"
+  place: TU Delft, Delft (NL)
+  slides: /files/slides/tudelft2025.pdf
+  thumb: /images/talk_thumbnails/tudelft2025.jpg
+
+- date: 2025-04-14
+  type: Invited talk
+  title: "On the Quest for Resource-Efficient AI: Lessons Learnt from Machine Learning and Neuro-Symbolic Integration"
+  place: Vrije Universiteit Amsterdam, Amsterdam (NL)
+  slides: /files/slides/vu2025.pdf
+  thumb: /images/talk_thumbnails/vu2025.jpg
+
+- date: 2024-08-27
+  type: Paper presentation
+  title: "Approximating Memorization Using Loss Surface Geometry for Dataset Pruning and Summarization"
+  context: "30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD 2024)"
+  place: Barcelona (ES)
+  slides: /files/slides/kdd2024.pdf
+  thumb: /images/talk_thumbnails/kdd2024.jpg
+
+- date: 2024-07-09
+  type: Paper presentation
+  title: "An Empirical Study on the Robustness of Knowledge Injection Techniques Against Data Degradation"
+  context: "25th Workshop “From Objects to Agents” (WOA 2024)"
+  place: Forte di Bard (IT)
+  slides: /files/slides/woa2024.pdf
+  thumb: /images/talk_thumbnails/woa2024.jpg
+
+- date: 2024-06-24
+  type: PhD defence
+  title: "Embedding AI into Constrained Devices: A Multi-Faceted Approach"
+  context: "PhD in Computer Science and Engineering, University of Bologna"
+  place: Bologna (IT)
+  slides: /files/slides/phd2024.pdf
+  thumb: /images/talk_thumbnails/phd2024.jpg
+
+- date: 2023-07-05
+  type: Paper presentation
+  title: "GNN4IFA: Interest Flooding Attack Detection with Graph Neural Networks"
+  context: "8th IEEE European Symposium on Security and Privacy (EuroS&P 2023), presented with Enkeleda Bardhi"
+  place: Delft (NL)
+  slides: /files/slides/eurosp2023.pdf
+  thumb: /images/talk_thumbnails/eurosp2023.jpg
+
+- date: 2023-05-29
+  type: Paper presentation
+  title: "The Quarrel of Local Post-hoc Explainers for Moral Values Classification in Natural Language Processing"
+  context: "EXTRAAMAS 2023 workshop, co-located with AAMAS 2023"
+  place: London (UK)
+  slides: /files/slides/extraamas2023.pdf
+  thumb: /images/talk_thumbnails/extraamas2023.jpg
+
+- date: 2023-01-17
+  type: Seminar
+  title: "Resource-Friendly Artificial Intelligence"
+  place: TU Delft, Delft (NL)
+  slides: /files/slides/tudelft2023.pdf
+  thumb: /images/talk_thumbnails/tudelft2023.jpg
+
+- date: 2022-08-02
+  type: Paper presentation
+  title: "GNN2GNN: Graph Neural Networks to Generate Neural Networks"
+  context: "38th Conference on Uncertainty in Artificial Intelligence (UAI 2022)"
+  place: Eindhoven (NL)
+  slides: /files/slides/uai2022.pdf
+  thumb: /images/talk_thumbnails/uai2022.jpg
+
+- date: 2021-09-02
+  type: Paper presentation
+  title: "Graph Neural Networks as the Copula Mundi between Logic and Machine Learning: A Roadmap"
+  context: "22nd Workshop “From Objects to Agents” (WOA 2021)"
+  place: Bologna (IT)
+  slides: /files/slides/woa2021.pdf
+  thumb: /images/talk_thumbnails/woa2021.jpg
+
+- date: 2021-05-03
+  type: Paper presentation
+  title: "Shallow2Deep: Restraining Neural Networks Opacity through Neural Architecture Search"
+  context: "EXTRAAMAS 2021 workshop, co-located with AAMAS 2021"
+  place: Online
+  slides: /files/slides/extraamas2021.pdf
+  thumb: /images/talk_thumbnails/extraamas2021.jpg
+
+- date: 2021-04-30
+  type: Seminar
+  title: "Graph Neural Networks: Theory & Applications"
+  place: University of Bologna, Bologna (IT)
+  context: Internal seminar
+  slides: /files/slides/bologna2021.pdf
+  thumb: /images/talk_thumbnails/bologna2021.jpg

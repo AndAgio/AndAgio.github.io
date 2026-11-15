@@ -817,3 +817,176 @@ details .bibtex-container { transition: none; }
 @media (max-width: 768px) {
   .topic-filter__label { width: 100%; }
 }
+
+/* ==========================================================
+   TALKS: timeline with slide thumbnail + details
+   (markup in _pages/talks.html; same line + dot as the news timeline)
+========================================================== */
+
+.talk-timeline {
+  list-style: none;
+  margin: 0 0 1em;
+  padding: 0;
+}
+
+.talk-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 6.2em 1fr;
+  column-gap: 1.8em;
+  padding-bottom: 1.6em;
+  margin: 0;
+}
+
+.talk-item__date {
+  padding-top: 0.2em;
+  text-align: right;
+  font-size: 0.75em;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--global-fig-caption-color);
+}
+
+.talk-item::before {                             /* the line */
+  content: "";
+  position: absolute;
+  left: calc(6.2em + 0.9em - 1px);
+  top: 0.9em;
+  bottom: -0.3em;
+  width: 2px;
+  background: var(--global-dark-border-color);
+}
+.talk-item:last-child::before,
+.talk-item.is-last::before { display: none; }
+.talk-item[hidden] { display: none !important; }
+
+.talk-item::after {                              /* the dot */
+  content: "";
+  position: absolute;
+  left: calc(6.2em + 0.9em - 5px);
+  top: 0.45em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  box-shadow: 0 0 0 3px var(--global-bg-color);
+}
+
+.talk-item__main {
+  display: flex;
+  gap: 20px;
+  min-width: 0;
+}
+
+.talk-thumb {
+  flex: 0 0 220px;
+  align-self: flex-start;
+}
+.talk-thumb,
+.talk-thumb:hover,
+.talk-thumb *,
+.talk-thumb:hover * { text-decoration: none; }
+
+.talk-thumb img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+}
+
+.talk-thumb__tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 9;
+  padding: 8px;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid var(--global-border-color);
+  border-top: 4px solid var(--accent-grey);
+  background: var(--card-bg);
+  color: var(--global-text-color);
+}
+.talk-thumb__tile--invited-talk          { border-top-color: var(--accent-blue); }
+.talk-thumb__tile--seminar               { border-top-color: var(--accent-green); }
+.talk-thumb__tile--talk                  { border-top-color: var(--accent-purple); }
+.talk-thumb__tile--paper-presentation    { border-top-color: var(--accent-red); }
+.talk-thumb:hover .talk-thumb__tile      { border-color: var(--accent-blue); }
+
+.talk-thumb__icon { font-size: 1.8em; line-height: 1; opacity: 0.85; }
+
+/* one colour per talk type: used by the filter chips, the tags and the tiles */
+.talk-color { --topic-color: var(--accent-grey); }
+.talk-color--invited-talk       { --topic-color: var(--accent-blue); }
+.talk-color--seminar            { --topic-color: var(--accent-green); }
+.talk-color--talk               { --topic-color: var(--accent-purple); }
+.talk-color--paper-presentation { --topic-color: var(--accent-red); }
+
+.talk-tags { margin: 0 0 4px; }
+
+.talk-content { flex: 1; min-width: 0; }
+.talk-title { margin: 0 0 4px; font-size: 1.05em; }
+.talk-context,
+.talk-place,
+.talk-links { margin: 0 0 4px; font-size: 0.95em; }
+.talk-place { color: var(--global-fig-caption-color); }
+
+@media (max-width: 768px) {
+  .talk-item { grid-template-columns: 1fr; padding-left: 1.4em; }
+  .talk-item__date { text-align: left; padding-top: 0; margin-bottom: 4px; }
+  .talk-item::before { left: 4px; top: 1.1em; }
+  .talk-item::after { left: 0; top: 0.3em; }
+  .talk-item__main { flex-direction: column; gap: 10px; }
+  .talk-thumb { flex-basis: auto; max-width: 320px; }
+  .talk-item__main--nothumb .talk-thumb { display: none; }
+}
+
+/* Talks without slides: note inside the box (desktop) or in the link line (phones,
+   where the empty box is hidden). */
+.talk-thumb__tile { flex-direction: column; gap: 6px; }
+.talk-thumb__soon {
+  font-size: 0.72em;
+  font-style: italic;
+  color: var(--global-fig-caption-color);
+}
+.talk-soon-inline { display: none; font-size: 0.9em; font-style: italic; color: var(--global-fig-caption-color); }
+.talk-soon-inline + .talk-links__sep { display: none; }
+.talk-links:empty { display: none; }
+@media (max-width: 768px) {
+  .talk-soon-inline { display: inline; }
+  .talk-soon-inline + .talk-links__sep { display: inline; }
+}
+
+/* Older talks use 4:3 slides: show the whole first slide inside the 16:9 box. */
+.talk-thumb img {
+  object-fit: contain;
+  background: var(--card-bg);
+}
+
+.talk-color--phd-defence               { --topic-color: var(--accent-amber); }
+.talk-thumb__tile--phd-defence         { border-top-color: var(--accent-amber); }
+
+/* Talks: smaller slide previews (Andrea, 2026-11-15) */
+.talk-thumb { flex: 0 0 160px; }
+.talk-item__main { gap: 16px; }
+.talk-thumb__icon { font-size: 1.4em; }
+.talk-thumb__soon { font-size: 0.66em; }
+@media (max-width: 768px) {
+  .talk-thumb { flex-basis: auto; max-width: 220px; }
+}
+
+/* Talks: same "page in page" box as the home-page news (sized by the script
+   in _pages/talks.html to the 10 newest visible talks). */
+.talk-scroll.is-scrollable .talk-timeline { margin-bottom: 0; padding-bottom: 2.5em; }
+
+/* One-line tip under filter buttons (Talks) */
+.topic-filter__help {
+  margin: 2px 0 4px;
+  font-size: 0.78em;
+  font-style: italic;
+  color: var(--global-fig-caption-color);
+}
