@@ -1,0 +1,33 @@
+# Awards & recognition, shown on the CV page (_pages/cv.md) in the same row
+# style as the Service page (moved from Service, Andrea 2026-11-15).
+# Fields as in _data/service.yml: acronym (left column), role (= the award,
+# first line), name (second line, linked if url), url, years, note.
+
+- role: Spotlight Paper
+  name: ACM Workshop on Artificial Intelligence and Security
+  acronym: AISec
+  years: ["2026"]
+  url: "https://aisec.cc/accepted-papers.html"
+  note: one of 8 spotlight papers out of 263 submissions
+- role: Gold Reviewer
+  name: International Conference on Machine Learning
+  acronym: ICML
+  years: ["2026"]
+  url: "https://icml.cc/Conferences/2026/ProgramCommittee#gold"
+- role: Top Reviewer
+  name: International Conference on Machine Learning
+  acronym: ICML
+  years: ["2025"]
+- role: Outstanding Reviewer
+  name: ACM SIGKDD Conference on Knowledge Discovery and Data Mining
+  acronym: KDD
+  years: ["2025"]
+- role: Top Reviewer
+  name: Conference on Uncertainty in Artificial Intelligence
+  acronym: UAI
+  years: ["2023"]
+- role: Double Degree Honours Student Award
+  name: University of Padua
+  acronym: UniPD
+  years: ["2020"]
+  note: Master's programme

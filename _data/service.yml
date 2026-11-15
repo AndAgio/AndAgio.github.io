@@ -1,0 +1,185 @@
+# Service page (_pages/service.html). Structure modelled on
+# giovanniapruzzese.com/service; plain CV-style rows (Andrea, 2026-11-15).
+# Program committee and reviewer rows: short name on the left, full name,
+# years on the right. Chair and community rows use their own layouts (below).
+# Source: the CV (master record) and brand/profile.md.
+#
+# Each item: acronym (short name shown on the left; every item has one),
+# role (optional), name, url (optional, links the name), years (any order;
+# consecutive years are shown as a range, e.g. 2023–2025), ongoing (optional,
+# true -> "2026–ongoing"), note (optional, Markdown, second line).
+# Sections have an icon (Font Awesome 6 solid name, e.g. "brain"), a colour
+# (amber | blue | purple | green | red | grey), an optional layout, and either
+# items or groups of items (groups have a label and an icon).
+# Layouts: "event"    -> "Role @ ACRONYM" (acronym linked to url), the full
+#                        event name, then `where` (Markdown: co-location,
+#                        city, dates). Organizing / chair roles always get a url.
+#          "position" -> `title` (Markdown, with the link), `institution`
+#                        (shown with an icon), `description` (small print).
+#          (none)     -> full name (linked if url), note below.
+
+intro: >-
+  I review 40+ papers a year for machine learning, AI and security venues, and help organize
+  workshops at the intersection of these communities.
+
+sections:
+  - id: chairs
+    title: Organization & Chair Roles
+    icon: sitemap
+    color: amber
+    layout: event
+    # Facts from each event's own site (checked 2026-11-15). HotDiSec is left
+    # unnumbered on purpose (Andrea, 2026-11-15), although brand/profile.md
+    # says it is officially the 1st edition (the CV says "1st").
+    items:
+      - role: Organizer
+        acronym: HotDiSec
+        url: "https://hotdisec.github.io/website_2026/"
+        name: International Workshop on Hot Topics at the Intersection of Distributed Machine Learning and Security
+        where: Co-located with [ESORICS 2026](https://esorics2026.org/) in Rome, Italy · 14–18 September 2026
+        years: ["2026"]
+      - role: Organizer
+        acronym: ANSyA
+        url: "https://ansya-workshop.github.io/2025/"
+        name: 1st International Workshop on Advanced Neuro-Symbolic Applications
+        where: Co-located with [ECAI 2025](https://ecai2025.org/) in Bologna, Italy · 25–30 October 2025
+        years: ["2025"]
+      - role: Organizer
+        acronym: HotDiML
+        url: "https://hotdiml.github.io/HotDiML2025/"
+        name: 1st Workshop on Hot Topics in Distributed Machine Learning
+        where: Co-located with [IEEE ICDCS 2025](https://icdcs2025.icdcs.org/) in Glasgow, Scotland, UK · 20–23 July 2025
+        years: ["2025"]
+      - role: Web Chair
+        acronym: ECAI
+        url: "https://ecai2025.org/"
+        name: 28th European Conference on Artificial Intelligence
+        where: Bologna, Italy · 25–30 October 2025
+        years: ["2025"]
+      - role: Publicity Chair
+        acronym: EXTRAAMAS
+        url: "https://extraamas.histlab.hevs.ch/archive-2024.html"
+        name: 6th International Workshop on EXplainable and TRAnsparent AI and Multi-Agent Systems
+        where: Co-located with [AAMAS 2024](https://www.ifaamas.org/AAMAS/aamas2024/) in Auckland, New Zealand · 6–7 May 2024
+        years: ["2024"]
+
+  - id: program-committees
+    title: Program Committee Member
+    icon: users
+    color: blue
+    groups:
+      - label: AI & Machine Learning
+        icon: brain
+        items:
+          - name: Conference on Neural Information Processing Systems
+            acronym: NeurIPS
+            years: ["2026", "2025"]
+          - name: International Conference on Machine Learning
+            acronym: ICML
+            years: ["2026", "2025"]
+          - name: International Conference on Learning Representations
+            acronym: ICLR
+            years: ["2026"]
+          - name: ACM SIGKDD Conference on Knowledge Discovery and Data Mining
+            acronym: KDD
+            years: ["2027", "2026", "2025", "2024"]
+          - name: AAAI Conference on Artificial Intelligence
+            acronym: AAAI
+            years: ["2027", "2026", "2025", "2024", "2023"]
+          - name: International Joint Conference on Artificial Intelligence
+            acronym: IJCAI
+            years: ["2027"]
+          - name: Conference on Uncertainty in Artificial Intelligence
+            acronym: UAI
+            years: ["2026", "2024", "2023"]
+      - label: Security & Privacy
+        icon: shield-halved
+        items:
+          - name: European Symposium on Research in Computer Security
+            acronym: ESORICS
+            years: ["2025"]
+          - name: ACM Conference on Data and Application Security and Privacy
+            acronym: CODASPY
+            years: ["2027", "2026", "2025"]
+      - label: Other Conferences
+        icon: landmark
+        items:
+          - name: ACM/SIGAPP Symposium on Applied Computing
+            acronym: SAC
+            years: ["2027", "2025"]
+            note: ASH track in 2025
+      - label: Workshops
+        icon: chalkboard-user
+        items:
+          - name: Workshop on Neuro-Symbolic Embodied Intelligence
+            acronym: NEmo
+            years: ["2026"]
+            note: co-located with NeurIPS 2026
+          - name: International Workshop on EXplainable and TRAnsparent AI and Multi-Agent Systems
+            acronym: EXTRAAMAS
+            years: ["2025", "2024", "2023"]
+            note: co-located with AAMAS
+          - name: Workshop “From Objects to Agents”
+            acronym: WOA
+            years: ["2024", "2023", "2022"]
+
+  - id: reviewing
+    title: Reviewer
+    icon: file-pen
+    color: purple
+    groups:
+      - label: Journals
+        icon: book-open
+        items:
+          - name: Transactions on Machine Learning Research
+            acronym: TMLR
+            years: ["2026", "2025"]
+          - name: ACM Computing Surveys
+            acronym: CSUR
+          - name: ACM Transactions on AI Security and Privacy
+            acronym: TAISAP
+          - name: IEEE Transactions on Network and Service Management
+            acronym: TNSM
+          - name: IEEE Transactions on Services Computing
+            acronym: TSC
+          - name: Elsevier Future Generation Computer Systems
+            acronym: FGCS
+          - name: Elsevier Knowledge-Based Systems
+            acronym: KBS
+          - name: Elsevier Computer Networks
+            acronym: COMNET
+          - name: Springer AI and Ethics
+            acronym: AI Ethics
+      - label: Conferences (external reviewer)
+        icon: landmark
+        items:
+          - name: IEEE International Conference on Computer Communications
+            acronym: INFOCOM
+            years: ["2025"]
+
+  - id: community
+    title: Community & Institutional Service
+    icon: people-group
+    color: green
+    layout: position
+    items:
+      - title: >-
+          Committee Member of the
+          [TU Delft PostDoc Network](https://www.tudelft.nl/over-tu-delft/werken-bij-tu-delft/nederland-tu-delft/support-for-international-employees/at-tu-delft/support-networks/postdoc-network)
+        institution: TU Delft
+        years: ["2026"]
+        ongoing: true
+        description: >-
+          The PostDoc Network represents the postdoctoral researchers of TU Delft. As a committee
+          member, I work to give postdocs a voice in their departments, faculties and the higher
+          governing bodies of the university, bringing their perspective into the decisions that
+          shape their positions and careers.
+      - title: >-
+          Participant in the
+          [TU Delft Generative AI Workgroup](https://www.tudelft.nl/ellis-delft-unit/programmes/tu-delft-generative-ai-workgroup)
+        institution: TU Delft
+        years: ["2026"]
+        ongoing: true
+        description: >-
+          I take part in the workgroup to help shape TU Delft's university-wide stance and agenda on
+          generative AI in research. The workgroup is one of the ELLIS Delft Unit programmes.

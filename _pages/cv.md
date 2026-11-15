@@ -7,58 +7,24 @@ redirect_from:
   - /resume
 ---
 
-{% include base_path %}
+<!-- Placeholder until the public CV PDF is ready (see brand/log.md → Handoffs).
+     Plan: embed the PDF in an in-page viewer with a "Download PDF" button.
+     Awards live here (moved from Service, 2026-11-15): _data/awards.yml. -->
 
-Education
-======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+<div class="notice--info cv-placeholder" markdown="1">
+**My up-to-date CV will be available here soon**, to read right in the page or to download as a PDF.
+</div>
 
-Work experience
-======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+<section id="awards" class="academic-section svc-section svc-c--amber">
+  <h2 class="svc-h2"><span class="svc-h2__icon" aria-hidden="true"><i class="fas fa-award"></i></span>Awards &amp; Recognition</h2>
+  {% include service-list.html items=site.data.awards %}
+</section>
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+In the meantime, most of my CV is already on this website:
 
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+- [Publications](/publications/), with abstracts, PDFs and code
+- [Talks](/talks/), with slides
+- [Supervision & Teaching](/teaching/)
+- [Service](/service/)
 
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+You can also find my work on [Google Scholar]({{ site.author.googlescholar }}). For a copy of my full CV, feel free to [drop me an email](mailto:{{ site.author.email }}).

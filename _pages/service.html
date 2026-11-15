@@ -1,0 +1,26 @@
+---
+layout: archive
+title: "Service"
+permalink: /service/
+author_profile: true
+---
+
+{% comment %}
+  Content lives in _data/service.yml; awards are on the CV page (_data/awards.yml).
+  List structure modelled on giovanniapruzzese.com/service, shown as plain
+  CV-style rows (_includes/service-list.html).
+{% endcomment %}
+{% assign s = site.data.service %}
+
+<p class="page-intro">{{ s.intro }}</p>
+
+{% for sec in s.sections %}
+<section id="{{ sec.id }}" class="academic-section svc-section svc-c--{{ sec.color | default: 'grey' }}">
+  <h2 class="svc-h2"><span class="svc-h2__icon" aria-hidden="true"><i class="fas fa-{{ sec.icon }}"></i></span>{{ sec.title | escape }}</h2>
+  {% if sec.items %}{% include service-list.html items=sec.items layout=sec.layout %}{% endif %}
+  {% for g in sec.groups %}
+  <h3 class="svc-group">{% if g.icon %}<i class="fas fa-fw fa-{{ g.icon }}" aria-hidden="true"></i>{% endif %}{{ g.label }}</h3>
+  {% include service-list.html items=g.items layout=sec.layout %}
+  {% endfor %}
+</section>
+{% endfor %}
