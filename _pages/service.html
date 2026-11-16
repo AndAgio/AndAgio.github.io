@@ -16,10 +16,10 @@ author_profile: true
 
 {% for sec in s.sections %}
 <section id="{{ sec.id }}" class="academic-section svc-section svc-c--{{ sec.color | default: 'grey' }}">
-  <h2 class="svc-h2"><span class="svc-h2__icon" aria-hidden="true"><i class="fas fa-{{ sec.icon }}"></i></span>{{ sec.title | escape }}</h2>
+  <h2 class="cvx-h2"><span class="cvx-bar" aria-hidden="true"></span><span class="cvx-h2__text">{{ sec.title | escape }}</span></h2>
   {% if sec.items %}{% include service-list.html items=sec.items layout=sec.layout %}{% endif %}
   {% for g in sec.groups %}
-  <h3 class="svc-group">{% if g.icon %}<i class="fas fa-fw fa-{{ g.icon }}" aria-hidden="true"></i>{% endif %}{{ g.label }}</h3>
+  <h3 class="svc-group">{% if g.emoji %}<span class="ico" aria-hidden="true">{{ g.emoji }}</span>{% endif %}{{ g.label }}</h3>
   {% include service-list.html items=g.items layout=sec.layout %}
   {% endfor %}
 </section>

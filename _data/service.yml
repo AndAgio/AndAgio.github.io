@@ -8,9 +8,8 @@
 # role (optional), name, url (optional, links the name), years (any order;
 # consecutive years are shown as a range, e.g. 2023–2025), ongoing (optional,
 # true -> "2026–ongoing"), note (optional, Markdown, second line).
-# Sections have an icon (Font Awesome 6 solid name, e.g. "brain"), a colour
-# (amber | blue | purple | green | red | grey), an optional layout, and either
-# items or groups of items (groups have a label and an icon).
+# Sections have a colour (now all map to the site blue), an optional layout, and
+# either items or groups of items (groups have a label and an emoji).
 # Layouts: "event"    -> "Role @ ACRONYM" (acronym linked to url), the full
 #                        event name, then `where` (Markdown: co-location,
 #                        city, dates). Organizing / chair roles always get a url.
@@ -25,7 +24,6 @@ intro: >-
 sections:
   - id: chairs
     title: Organization & Chair Roles
-    icon: sitemap
     color: amber
     layout: event
     # Facts from each event's own site (checked 2026-11-15). HotDiSec is left
@@ -65,11 +63,10 @@ sections:
 
   - id: program-committees
     title: Program Committee Member
-    icon: users
     color: blue
     groups:
       - label: AI & Machine Learning
-        icon: brain
+        emoji: "🧠"
         items:
           - name: Conference on Neural Information Processing Systems
             acronym: NeurIPS
@@ -93,7 +90,7 @@ sections:
             acronym: UAI
             years: ["2026", "2024", "2023"]
       - label: Security & Privacy
-        icon: shield-halved
+        emoji: "🛡️"
         items:
           - name: European Symposium on Research in Computer Security
             acronym: ESORICS
@@ -102,14 +99,14 @@ sections:
             acronym: CODASPY
             years: ["2027", "2026", "2025"]
       - label: Other Conferences
-        icon: landmark
+        emoji: "🏛️"
         items:
           - name: ACM/SIGAPP Symposium on Applied Computing
             acronym: SAC
             years: ["2027", "2025"]
             note: ASH track in 2025
       - label: Workshops
-        icon: chalkboard-user
+        emoji: "👥"
         items:
           - name: Workshop on Neuro-Symbolic Embodied Intelligence
             acronym: NEmo
@@ -125,11 +122,10 @@ sections:
 
   - id: reviewing
     title: Reviewer
-    icon: file-pen
     color: purple
     groups:
       - label: Journals
-        icon: book-open
+        emoji: "📚"
         items:
           - name: Transactions on Machine Learning Research
             acronym: TMLR
@@ -151,7 +147,7 @@ sections:
           - name: Springer AI and Ethics
             acronym: AI Ethics
       - label: Conferences (external reviewer)
-        icon: landmark
+        emoji: "🏛️"
         items:
           - name: IEEE International Conference on Computer Communications
             acronym: INFOCOM
@@ -159,7 +155,6 @@ sections:
 
   - id: community
     title: Community & Institutional Service
-    icon: people-group
     color: green
     layout: position
     items:

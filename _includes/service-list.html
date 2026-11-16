@@ -46,12 +46,12 @@
       {%- assign org = it.org | default: it.acronym -%}
       <span class="svc-head"><span class="svc-role">{{ it.role }}</span> <span class="svc-at">@</span> {% if it.url %}<a class="svc-link" href="{{ it.url }}" target="_blank" rel="noopener noreferrer">{{ org }}</a>{% else %}{{ org }}{% endif %}</span>
       {%- if it.name %}<span class="svc-fullname">{{ it.name | markdownify | remove: "<p>" | remove: "</p>" | strip }}</span>{% endif -%}
-      {%- if it.where %}<span class="svc-where"><i class="fas fa-fw fa-location-dot" aria-hidden="true"></i>{{ it.where | markdownify | remove: "<p>" | remove: "</p>" | strip | replace: '<a href=', ext }}</span>{% endif -%}
+      {%- if it.where %}<span class="svc-where"><span class="ico" aria-hidden="true">📍</span>{{ it.where | markdownify | remove: "<p>" | remove: "</p>" | strip | replace: '<a href=', ext }}</span>{% endif -%}
       {%- if note %}<span class="svc-detail">{{ note }}</span>{% endif -%}
       {%- if it.description %}<span class="svc-desc">{{ it.description | markdownify | remove: "<p>" | remove: "</p>" | strip }}</span>{% endif -%}
       {%- elsif layout == "position" -%}
       <span class="svc-head">{{ it.title | markdownify | remove: "<p>" | remove: "</p>" | strip | replace: '<a href=', ext }}</span>
-      <span class="svc-org"><i class="fas fa-fw fa-building-columns" aria-hidden="true"></i>{{ it.institution }}</span>
+      <span class="svc-org"><span class="ico" aria-hidden="true">🏛️</span>{{ it.institution }}</span>
       {%- if it.description %}<span class="svc-desc">{{ it.description | markdownify | remove: "<p>" | remove: "</p>" | strip }}</span>{% endif -%}
       {%- elsif layout == "artifact" -%}
       <span class="svc-title">{{ it.name }}</span>

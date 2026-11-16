@@ -2,6 +2,7 @@
 # The five themes cover the research areas in the bio. A paper lists theme ids under `topics:` in
 # _data/publications.yml; free-text `keywords:` are shown on the card but are not filters.
 # The order here is the order of the buttons and tags.
+# Icons: emoji, like everywhere else on the site (Andrea, 2026-11-16).
 # Colours: shades of the site blue (palette in _sass/_custom.scss), darkest first;
 # written as CSS variables so they also switch in dark mode.
 
