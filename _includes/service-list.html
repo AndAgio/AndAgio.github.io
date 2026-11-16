@@ -12,6 +12,7 @@
   "event" and "position" rows have no short-name column (the header says it).
   "event" also takes org (header text, default acronym), note, description.
   Any row can set period: free text for the right-hand column.
+  count=true (Program Committee section) adds "N×" before the years.
   Usage: {% include service-list.html items=section.items layout=section.layout %}
 {% endcomment %}
 {%- assign layout = include.layout | default: "default" -%}
@@ -63,7 +64,7 @@
       {%- if note %}<span class="svc-detail">{{ note }}</span>{% endif -%}
       {%- endif -%}
     </span>
-    <span class="svc-years">{% if it.period %}{{ it.period }}{% elsif it.ongoing %}{{ ys.first }}–ongoing{% else %}{{ runs }}{% endif %}</span>
+    <span class="svc-years">{% if include.count and ys.size > 0 %}<span class="svc-count" title="{{ ys.size }} time{% if ys.size > 1 %}s{% endif %} on the program committee">{{ ys.size }}×</span>{% endif %}{% if it.period %}{{ it.period }}{% elsif it.ongoing %}{{ ys.first }}–ongoing{% else %}{{ runs }}{% endif %}</span>
   </li>
 {%- endfor %}
 </ul>

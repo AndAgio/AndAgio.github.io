@@ -49,7 +49,7 @@ sections:
             meta: MSc thesis, TU Delft · with Dr. Enkeleda Bardhi
             when: 2025/26
           - name: Davide Alpi
-            text: "Topic: derailment of LLM-based conversational characters (NPCs)"
+            title: "Conversational Non-Player Characters: A Study on the Derailment of Large Language Models"
             meta: MSc thesis, University of Bologna
             when: 2022/23
       - label: Student projects

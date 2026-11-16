@@ -63,6 +63,7 @@ sections:
 
   - id: program-committees
     title: Program Committee Member
+    count: true   # show how many times on each PC ("5×") next to the years
     color: blue
     groups:
       - label: AI & Machine Learning
