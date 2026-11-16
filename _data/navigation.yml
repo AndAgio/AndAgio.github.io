@@ -4,19 +4,21 @@
 # links. Removing a link prevents it from showing in the header, but does not
 # prevent it from being included in the site.
 #
-# NOTE that only one of the CV options should be selected, the first is for the
-#      Markdown formatted page while the second is generated using JSON.
+# Sections modelled on Enkeleda Bardhi's site (same academicpages template).
+# Each page reads its content from a file in _data/ (news, publications, talks,
+# teaching, service).
+#
+# No "About & News" item: the name at the top left (site title, _includes/masthead.html)
+# is the home link and is underlined on the home page (Andrea, 2026-11-13).
 
 main:
-  - title: "About & News"
-    url: /
   - title: "Publications"
     url: /publications/
-  - title: "Articles"
-    url: /articles/
   - title: "Talks"
     url: /talks/
   - title: "Teaching"
     url: /teaching/
+  - title: "Service"
+    url: /service/
   - title: "CV"
     url: /cv/
