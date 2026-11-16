@@ -34,13 +34,13 @@
       box.tabIndex = on ? 0 : -1;
       hint.hidden = !on;
       if (!on) { box.style.maxHeight = ""; return; }
-      // Height up to the start of item `visible + 1`, plus a peek of it.
+      /* Height up to the start of item `visible + 1`, plus a peek of it. */
       box.style.maxHeight = (items[visible].offsetTop + 28) + "px";
     }
 
     fit();
     window.addEventListener("load", fit);
     window.addEventListener("resize", fit);
-    box.addEventListener("toggle", fit, true); // a gallery opened or closed
+    box.addEventListener("toggle", fit, true); /* a gallery opened or closed */
   })();
 </script>

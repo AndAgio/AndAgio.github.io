@@ -92,7 +92,7 @@ author_profile: true
     var known = chips.map(function (c) { return c.dataset.type; });
     var selected = [];
 
-    // address format: #invited-talk,seminar
+    /* address format: #invited-talk,seminar */
     function fromHash() {
       return decodeURIComponent(location.hash.slice(1)).split(",").filter(function (t) { return known.indexOf(t) >= 0; });
     }
@@ -123,8 +123,10 @@ author_profile: true
       fit();
     }
 
-    // "Page in page": show the newest `visible` talks, scroll inside the box for
-    // older ones (like the home-page news). Off on phones and when few talks show.
+    /* "Page in page": show the newest `visible` talks, scroll inside the box for
+       older ones (like the home-page news). Off on phones and when few talks show.
+       Scripts use only block comments: GitHub Pages compresses each page onto
+       one line in production, which would turn a line comment into dead code. */
     var box = document.getElementById("talk-scroll");
     var hint = document.getElementById("talk-scroll-hint");
     var visible = parseInt(box.dataset.visible, 10) || 10;

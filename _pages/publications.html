@@ -73,7 +73,7 @@ redirect_from:
     chips.forEach(function (b) { kindOf[b.dataset.topic] = b.dataset.kind; nameOf[b.dataset.topic] = b.dataset.name; });
     var selected = [];
 
-    // address format: #a,b,c -> list of theme / type ids
+    /* address format: #a,b,c -> list of theme / type ids */
     function fromHash() {
       return decodeURIComponent(location.hash.slice(1)).split(/[,+]/).filter(function (t) { return kindOf[t]; });
     }
