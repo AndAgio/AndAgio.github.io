@@ -10,7 +10,9 @@ author_profile: true
   shows the 10 newest talks and scrolls for older ones (off on phones). Each talk:
   date on the left, then the first slide (or a placeholder tile) and the details.
   The type of each talk (Talk, Invited talk, ...) is a tag above the title and
-  also a filter: buttons at the top, or a click on a tag. Without JavaScript the
+  also a filter: buttons at the top, or a click on a tag. Each type has an icon
+  (_data/talk_types.yml), like the themes on the Publications page;
+  all icons on the site are emoji. Without JavaScript the
   filter bar stays hidden and every talk is shown.
 {% endcomment %}
 {% assign talks = site.data.talks | sort: "date" | reverse %}
@@ -24,7 +26,8 @@ author_profile: true
   <div class="topic-filter__row">
     <span class="topic-filter__label">Type</span>
     {% for g in type_groups %}
-    <button type="button" class="topic-chip topic-chip--theme talk-color talk-color--{{ g.name | slugify }}" data-type="{{ g.name | slugify }}" aria-pressed="false">{{ g.name }} <span class="topic-chip__n">{{ g.size }}</span></button>
+    {% assign ty = site.data.talk_types | where: "name", g.name | first %}
+    <button type="button" class="topic-chip topic-chip--theme talk-color talk-color--{{ g.name | slugify }}" data-type="{{ g.name | slugify }}" aria-pressed="false">{% if ty.emoji %}{{ ty.emoji }} {% endif %}{{ g.name }} <span class="topic-chip__n">{{ g.size }}</span></button>
     {% endfor %}
   </div>
   <p class="topic-filter__help">Click a type to show only those talks, or select several to see them together. The tag on each talk works the same way.</p>
@@ -37,6 +40,7 @@ author_profile: true
 <div class="news-scroll talk-scroll" id="talk-scroll" data-visible="10" role="region" aria-label="Talks, newest first">
 <ol class="talk-timeline">
 {% for t in talks %}
+  {% assign ty = site.data.talk_types | where: "name", t.type | first %}
   <li class="talk-item" data-type="{{ t.type | slugify }}">
     <time class="talk-item__date" datetime="{{ t.date | date: '%Y-%m' }}">{% if t.when %}{{ t.when }}{% else %}{{ t.date | date: "%b %Y" }}{% endif %}</time>
 
@@ -46,7 +50,7 @@ author_profile: true
         <img src="{{ t.thumb | relative_url }}" alt="{{ t.thumb_alt | default: 'First slide of the talk' | escape }}" loading="lazy">
         {% else %}
         <span class="talk-thumb__tile talk-thumb__tile--{{ t.type | slugify }}">
-          <span class="talk-thumb__icon" aria-hidden="true">{% if t.type == "Seminar" %}🎓{% elsif t.type == "Paper presentation" %}📄{% else %}🎤{% endif %}</span>
+          <span class="talk-thumb__icon" aria-hidden="true">{{ ty.emoji | default: "🎤" }}</span>
           {% unless t.slides %}<span class="talk-thumb__soon">(slides to be added soon)</span>{% endunless %}
         </span>
         {% endif %}
@@ -59,7 +63,7 @@ author_profile: true
 
       <div class="talk-content">
         <div class="talk-tags">
-          <a class="topic-tag topic-tag--theme talk-color talk-color--{{ t.type | slugify }}" href="#{{ t.type | slugify }}" data-type="{{ t.type | slugify }}" title="Show all: {{ t.type | escape }}">{{ t.type }}</a>
+          <a class="topic-tag topic-tag--theme talk-color talk-color--{{ t.type | slugify }}" href="#{{ t.type | slugify }}" data-type="{{ t.type | slugify }}" title="Show all: {{ t.type | escape }}">{% if ty.emoji %}{{ ty.emoji }} {% endif %}{{ t.type }}</a>
         </div>
         <h3 class="talk-title">{{ t.title }}</h3>
         {% if t.context %}<p class="talk-context"><em>{{ t.context }}</em></p>{% endif %}

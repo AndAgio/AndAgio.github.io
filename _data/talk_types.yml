@@ -1,0 +1,16 @@
+# Talk types on the Talks page (_pages/talks.html): one emoji each (the site
+# uses emoji for all its icons), shown on the
+# filter buttons, on the tag above each talk and on the tile of talks without
+# slides (like the theme icons on the Publications page, Andrea 2026-11-16).
+# `name` must match the `type:` values in _data/talks.yml.
+
+- name: Paper presentation
+  emoji: "📄"
+- name: Invited talk
+  emoji: "🎤"
+- name: Seminar
+  emoji: "🧑‍🏫"
+- name: Talk
+  emoji: "💬"
+- name: PhD defence
+  emoji: "🎓"
