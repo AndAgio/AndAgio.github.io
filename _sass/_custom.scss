@@ -1020,7 +1020,6 @@ details .bibtex-container { transition: none; }
 
 /* Talks: same "page in page" box as the home-page news (sized by the script
    in _pages/talks.html to the 10 newest visible talks). */
-.talk-scroll.is-scrollable .talk-timeline { margin-bottom: 0; padding-bottom: 2.5em; }
 
 /* One-line tip under filter buttons (Talks) */
 .topic-filter__help {
@@ -1269,22 +1268,28 @@ h2.cvx-h2 {
    Teaching page: compact cards, two per row (one on phones).
    Headings: h2.cvx-h2 (as on the CV) and the Service group labels (.svc-group).
 ---------------------------------------------------------- */
+/* one bordered card per group, entries in two columns inside it, with thin
+   dividers between them (Andrea, 2026-11-16: not one card per entry) */
 .tcards {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
   margin: 0 0 0.6em;
+  border: 1px solid var(--global-border-color);
+  border-radius: 6px;
+  overflow: hidden;
 }
 .tcard {
   display: flex;
   flex-direction: column;
   gap: 0.15em;
-  padding: 0.6em 0.85em 0.65em;
+  padding: 0.65em 0.9em 0.7em;
   font-size: 0.86em;
   line-height: 1.4;
-  border: 1px solid var(--global-border-color);
-  border-radius: 6px;
+  border-top: 1px solid var(--global-border-color);
 }
+.tcard:nth-child(-n+2) { border-top: none; }
+.tcard:nth-child(odd) { border-right: 1px solid var(--global-border-color); }
+.tcard:last-child:nth-child(odd) { grid-column: 1 / -1; border-right: none; }
 .tcard__head {
   display: flex;
   justify-content: space-between;
@@ -1322,6 +1327,8 @@ h2.cvx-h2 {
 .tcard__meta .fas { margin-right: 0.3em; font-size: 0.9em; }
 @media (max-width: 640px) {
   .tcards { grid-template-columns: minmax(0, 1fr); }
+  .tcard { border-right: none !important; }
+  .tcard:nth-child(2) { border-top: 1px solid var(--global-border-color); }
 }
 
 /* ----------------------------------------------------------
@@ -1335,3 +1342,36 @@ h2.cvx-h2 {
   line-height: 1;
 }
 .svc-group .ico { font-size: 1.05em; }
+
+/* Service: how many times on each program committee ("5×") */
+.svc-count {
+  display: inline-block;
+  margin-right: 0.6em;
+  padding: 0 0.5em;
+  font-size: 0.82em;
+  font-weight: 600;
+  line-height: 1.6;
+  border-radius: 999px;
+  color: var(--b900);
+  background: var(--b100);
+}
+
+/* Talks: year links land the talk below the fixed menu bar */
+.talk-item { scroll-margin-top: 80px; }
+
+/* Sidebar (name, title, links): the theme pins it with position: fixed and
+   sizes it as a share of the whole window, while the content column sits in
+   the centred page (925 px wide, 1280 px from a 1280 px window). On many
+   screens the sidebar ran into the content (Andrea, 2026-11-16). Size it from
+   the same centred page width instead: 2 of 12 columns (15.25 %), minus a gap. */
+@media screen and (min-width: 1024px) {
+  .sidebar { width: calc((925px - 2em) * 0.1525 - 10px); }
+}
+@media screen and (min-width: 1280px) {
+  .sidebar { width: calc((1280px - 2em) * 0.1525 - 10px); max-width: none; }
+}
+.author__name,
+.author__bio { overflow-wrap: break-word; }
+/* the theme keeps sidebar lines on one line ("Delft, The Netherlands" ran
+   into the content on 1024-1279 px screens); let them wrap when needed */
+.sidebar .author__urls li { white-space: normal; }

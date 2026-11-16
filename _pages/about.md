@@ -1,5 +1,8 @@
 ---
 permalink: /
+# Same layout (and width) as the other pages; the default "single" layout
+# keeps a sixth of the width free on the right (Andrea, 2026-11-16).
+layout: archive
 # No page title: the browser tab and link previews show just the site name,
 # and the page doesn't repeat the "Bio" heading above itself.
 title: false
