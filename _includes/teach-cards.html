@@ -1,22 +1,27 @@
 {% comment %}
-  Compact cards, two per row (Teaching page). Fields: see _data/teaching.yml.
+  Teaching page cards (Andrea, 2026-11-16): one full-width card per entry,
+  with two columns inside it, inside one bordered box per group:
+    left  -> student name (or the course, for role @ course entries),
+             years, honours badge
+    right -> role (if any), thesis / lecture title (linked if link),
+             text, and the 🏛️ institution line
+  Fields: see _data/teaching.yml.
   Usage: {% include teach-cards.html items=group.items %}
 {% endcomment %}
 <div class="tcards">
 {%- for it in include.items %}
   <div class="tcard">
-    <div class="tcard__head">
-      <span class="tcard__name">
-        {%- if it.role -%}
-        {{ it.role }} <span class="svc-at">@</span> {% if it.url %}<a class="svc-link" href="{{ it.url }}" target="_blank" rel="noopener noreferrer">{{ it.org }}</a>{% else %}{{ it.org }}{% endif %}
-        {%- else -%}{{ it.name }}{%- endif -%}
-        {%- if it.badge %} <span class="tcard__badge">{{ it.badge }}</span>{% endif -%}
-      </span>
-      {%- if it.when %}<span class="tcard__when">{{ it.when }}</span>{% endif %}
+    <div class="tcard__left">
+      <span class="tcard__name">{% if it.role %}{% if it.url %}<a class="svc-link" href="{{ it.url }}" target="_blank" rel="noopener noreferrer">{{ it.org }}</a>{% else %}{{ it.org }}{% endif %}{% else %}{{ it.name }}{% endif %}</span>
+      {%- if it.when %}<span class="tcard__when">{{ it.when }}</span>{% endif -%}
+      {%- if it.badge %}<span class="tcard__badge">{{ it.badge }}</span>{% endif %}
     </div>
-    {%- if it.title %}<div class="tcard__title">{% if it.link %}<a class="svc-link" href="{{ it.link }}" target="_blank" rel="noopener noreferrer" title="Read the thesis">{{ it.title }}</a>{% else %}{{ it.title }}{% endif %}</div>{% endif %}
-    {%- if it.text %}<div class="tcard__text">{{ it.text }}</div>{% endif %}
-    {%- if it.meta %}<div class="tcard__meta"><span class="ico" aria-hidden="true">🏛️</span>{{ it.meta }}</div>{% endif %}
+    <div class="tcard__right">
+      {%- if it.role %}<div class="tcard__role">{{ it.role }}</div>{% endif -%}
+      {%- if it.title %}<div class="tcard__title">{% if it.link %}<a class="svc-link" href="{{ it.link }}" target="_blank" rel="noopener noreferrer" title="Read the thesis">{{ it.title }}</a>{% else %}{{ it.title }}{% endif %}</div>{% endif -%}
+      {%- if it.text %}<div class="tcard__text">{{ it.text }}</div>{% endif -%}
+      {%- if it.meta %}<div class="tcard__meta"><span class="ico" aria-hidden="true">🏛️</span>{{ it.meta }}</div>{% endif %}
+    </div>
   </div>
 {%- endfor %}
 </div>

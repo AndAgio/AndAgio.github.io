@@ -1268,28 +1268,37 @@ h2.cvx-h2 {
    Teaching page: compact cards, two per row (one on phones).
    Headings: h2.cvx-h2 (as on the CV) and the Service group labels (.svc-group).
 ---------------------------------------------------------- */
-/* one bordered card per group, entries in two columns inside it, with thin
-   dividers between them (Andrea, 2026-11-16: not one card per entry) */
+/* one bordered box per group; each entry is a full-width card with two
+   columns inside it: who / when on the left, what on the right
+   (Andrea, 2026-11-16) */
 .tcards {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   margin: 0 0 0.6em;
   border: 1px solid var(--global-border-color);
   border-radius: 6px;
-  overflow: hidden;
 }
 .tcard {
+  display: grid;
+  grid-template-columns: 13em minmax(0, 1fr);
+  column-gap: 1.4em;
+  padding: 0.7em 0.95em;
+  font-size: 0.86em;
+  line-height: 1.45;
+  border-top: 1px solid var(--global-border-color);
+}
+.tcard:first-child { border-top: none; }
+.tcard__left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2em;
+}
+.tcard__right {
   display: flex;
   flex-direction: column;
   gap: 0.15em;
-  padding: 0.65em 0.9em 0.7em;
-  font-size: 0.86em;
-  line-height: 1.4;
-  border-top: 1px solid var(--global-border-color);
+  min-width: 0;
 }
-.tcard:nth-child(-n+2) { border-top: none; }
-.tcard:nth-child(odd) { border-right: 1px solid var(--global-border-color); }
-.tcard:last-child:nth-child(odd) { grid-column: 1 / -1; border-right: none; }
+.tcard__role { font-weight: 600; }
 .tcard__head {
   display: flex;
   justify-content: space-between;
@@ -1307,7 +1316,7 @@ h2.cvx-h2 {
 }
 .tcard__badge {
   display: inline-block;
-  margin-left: 0.3em;
+  margin-left: 0;
   padding: 0 0.55em;
   font-size: 0.78em;
   font-weight: 600;
@@ -1326,9 +1335,8 @@ h2.cvx-h2 {
 }
 .tcard__meta .fas { margin-right: 0.3em; font-size: 0.9em; }
 @media (max-width: 640px) {
-  .tcards { grid-template-columns: minmax(0, 1fr); }
-  .tcard { border-right: none !important; }
-  .tcard:nth-child(2) { border-top: 1px solid var(--global-border-color); }
+  .tcard { grid-template-columns: minmax(0, 1fr); row-gap: 0.35em; }
+  .tcard__left { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 0.2em 0.7em; }
 }
 
 /* ----------------------------------------------------------
