@@ -18,6 +18,17 @@
     was selected as one of 8 spotlight papers at [AISec 2026](https://aisec.cc/), co-located with ACM CCS 2026.
     A reality check on LLM-written intrusion detection rules: they look right but are often too broad, so the experts in
     our user study see LLMs as drafting and checking aids rather than autonomous rule writers.
+  gallery:
+    title: Bits from AISec 2026
+    folder: /images/events/aisec_2026/
+    photos:
+      - file: 1.jpg
+        alt: Spotlight talk on the paper at AISec 2026, showing the slide on the system evaluation, with the audience in the foreground
+      - file: 2.jpg
+        alt: Spotlight talk at AISec 2026, showing the slide on the LLM-based rule engineering system
+      - file: 3.jpg
+        alt: Three of the paper's authors standing next to its poster at AISec 2026
+    caption: (Leftmost and middle) Spotlight talk, (Rightmost) At the poster with co-authors.
 
 - date: 2026-11-12
   text: >-
