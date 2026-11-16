@@ -1204,12 +1204,11 @@ a.svc-link:hover { text-decoration-color: currentColor; }
 
 .cvx { --cvx-left: 8.5em; }
 .cvx-section { margin: 0 0 1.7em; }
-/* section heading shared by the CV, Service and Teaching pages */
+/* section heading shared by the CV, Service and Teaching pages: the blue
+   title on the left, no bar, at every width (Andrea, 2026-11-16: the look
+   seen in the narrow preview). The bar span stays in the markup, hidden. */
 h2.cvx-h2 {
-  display: grid;
-  grid-template-columns: var(--cvx-left, 8.5em) minmax(0, 1fr);
-  column-gap: 1.2em;
-  align-items: center;
+  display: block;
   margin: 0 0 0.7em;
   padding: 0;
   font-size: 1.25em;
@@ -1217,11 +1216,7 @@ h2.cvx-h2 {
   color: var(--brand);
   border: none;
 }
-.cvx-bar {
-  height: 0.32em;
-  border-radius: 1px;
-  background: var(--brand);
-}
+.cvx-bar { display: none; }
 .cvx-entry {
   display: grid;
   grid-template-columns: var(--cvx-left) minmax(0, 1fr);
@@ -1265,8 +1260,6 @@ h2.cvx-h2 {
 }
 /* phones: one column, dates above each entry */
 @media (max-width: 640px) {
-  h2.cvx-h2 { grid-template-columns: 1fr; }
-  .cvx-bar { display: none; }
   .cvx-entry { grid-template-columns: minmax(0, 1fr); }
   .cvx-when { text-align: left; }
   .cvx-when--label { margin-bottom: 0.1em; }
