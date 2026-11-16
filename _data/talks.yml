@@ -18,12 +18,8 @@
   slides: /files/slides/accss2026.pdf
   thumb: /images/talk_thumbnails/accss2026.jpg
 
-- date: 2026-04-24
-  type: Paper presentation
-  title: "Membership Privacy Risks of Sharpness Aware Minimization"
-  context: International Conference on Learning Representations (ICLR 2026), poster
-  place: Rio de Janeiro (BR)
-  link: https://proceedings.iclr.cc/paper_files/paper/2026/hash/82f77023563b21fbd423b2d9b165c281-Abstract-Conference.html
+# ICLR 2026 (poster, Rio, Apr 2026) removed: a poster, not a talk (Andrea, 2026-11-16).
+# The paper is on the Publications page and the trip is in the news.
 
 - date: 2026-03-19
   type: Invited talk

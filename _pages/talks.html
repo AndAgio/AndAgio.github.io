@@ -6,9 +6,11 @@ author_profile: true
 ---
 
 {% comment %}
-  The list lives in _data/talks.yml, newest first. The timeline sits in a box that
-  shows the 10 newest talks and scrolls for older ones (off on phones). Each talk:
-  date on the left, then the first slide (or a placeholder tile) and the details.
+  The list lives in _data/talks.yml, newest first, as a plain timeline on the page
+  (no inner scroll box: Andrea, 2026-11-16; only the home-page news keeps one).
+  Each talk: date on the left, then the first slide (or a placeholder tile) and
+  the details. `poster: true` marks a poster (no "slides to be added" note).
+  Year links under the filters jump to each year (as on the Publications page).
   The type of each talk (Talk, Invited talk, ...) is a tag above the title and
   also a filter: buttons at the top, or a click on a tag. Each type has an icon
   (_data/talk_types.yml), like the themes on the Publications page;
@@ -17,6 +19,8 @@ author_profile: true
 {% endcomment %}
 {% assign talks = site.data.talks | sort: "date" | reverse %}
 {% assign type_groups = talks | group_by: "type" | sort: "size" | reverse %}
+{% assign talk_years = "" %}{% for t in talks %}{% assign y = t.date | date: "%Y" %}{% unless talk_years contains y %}{% assign talk_years = talk_years | append: y | append: "," %}{% endunless %}{% endfor %}
+{% assign talk_years = talk_years | split: "," %}
 
 <p class="page-intro">
   If you would like me to speak at your group or event, feel free to <a href="mailto:{{ site.author.email }}">get in touch</a>.
@@ -37,11 +41,17 @@ author_profile: true
   </p>
 </div>
 
-<div class="news-scroll talk-scroll" id="talk-scroll" data-visible="10" role="region" aria-label="Talks, newest first">
-<ol class="talk-timeline">
+<nav class="section-nav talk-years" aria-label="Years">
+  {% for y in talk_years %}<a href="#y{{ y }}" data-year="{{ y }}">{{ y }}</a>{% endfor %}
+</nav>
+
+<ol class="talk-timeline" aria-label="Talks, newest first">
+{% assign prev_year = "" %}
 {% for t in talks %}
   {% assign ty = site.data.talk_types | where: "name", t.type | first %}
-  <li class="talk-item" data-type="{{ t.type | slugify }}">
+  {% assign y = t.date | date: "%Y" %}
+  <li class="talk-item" data-type="{{ t.type | slugify }}" data-year="{{ y }}"{% if y != prev_year %} id="y{{ y }}"{% endif %}>
+  {% assign prev_year = y %}
     <time class="talk-item__date" datetime="{{ t.date | date: '%Y-%m' }}">{% if t.when %}{{ t.when }}{% else %}{{ t.date | date: "%b %Y" }}{% endif %}</time>
 
     <div class="talk-item__main{% unless t.thumb %} talk-item__main--nothumb{% endunless %}">
@@ -51,7 +61,7 @@ author_profile: true
         {% else %}
         <span class="talk-thumb__tile talk-thumb__tile--{{ t.type | slugify }}">
           <span class="talk-thumb__icon" aria-hidden="true">{{ ty.emoji | default: "🎤" }}</span>
-          {% unless t.slides %}<span class="talk-thumb__soon">(slides to be added soon)</span>{% endunless %}
+          {% unless t.slides %}<span class="talk-thumb__soon">{% if t.poster %}Poster presentation{% else %}(slides to be added soon){% endif %}</span>{% endunless %}
         </span>
         {% endif %}
       {% endcapture %}
@@ -69,16 +79,14 @@ author_profile: true
         {% if t.context %}<p class="talk-context"><em>{{ t.context }}</em></p>{% endif %}
         {% if t.place %}<p class="talk-place">📍 {{ t.place }}</p>{% endif %}
         <p class="talk-links">
-          {%- if t.slides %}<a href="{{ t.slides }}" target="_blank" rel="noopener noreferrer">🖥️ Slides (PDF)</a>{% else %}<span class="talk-soon-inline">(slides to be added soon)</span>{% endif -%}
-          {%- if t.link %}<span class="talk-links__sep"> · </span><a href="{{ t.link }}" target="_blank" rel="noopener noreferrer">🌐 Event page</a>{% endif -%}
+          {%- if t.slides %}<a href="{{ t.slides }}" target="_blank" rel="noopener noreferrer">🖥️ Slides (PDF)</a>{% elsif t.poster %}{% else %}<span class="talk-soon-inline">(slides to be added soon)</span>{% endif -%}
+          {%- if t.link %}{% unless t.poster and t.slides == nil %}<span class="talk-links__sep"> · </span>{% endunless %}<a href="{{ t.link }}" target="_blank" rel="noopener noreferrer">🌐 Event page</a>{% endif -%}
         </p>
       </div>
     </div>
   </li>
 {% endfor %}
 </ol>
-</div>
-<p class="news-scroll-hint" id="talk-scroll-hint" hidden>Scroll inside the box for older talks &darr;</p>
 
 <script>
   (function () {
@@ -119,30 +127,25 @@ author_profile: true
         : "Showing all " + items.length + " talks";
       clearBtn.hidden = !selected.length;
       if (updateUrl) history.replaceState(null, "", selected.length ? "#" + selected.join(",") : location.pathname);
-      box.scrollTop = 0;
-      fit();
+      yearLinks.forEach(function (a) {
+        a.hidden = !items.some(function (it) { return !it.hidden && it.dataset.year === a.dataset.year; });
+      });
     }
 
-    /* "Page in page": show the newest `visible` talks, scroll inside the box for
-       older ones (like the home-page news). Off on phones and when few talks show.
-       Scripts use only block comments: GitHub Pages compresses each page onto
+    /* Year links (as on the Publications page): jump to the first talk of that
+       year that the type filter shows; years with no talks shown are hidden. */
+    var yearLinks = Array.prototype.slice.call(document.querySelectorAll(".talk-years a"));
+    yearLinks.forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        var target = items.filter(function (it) { return !it.hidden && it.dataset.year === a.dataset.year; })[0];
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    /* Scripts use only block comments: GitHub Pages compresses each page onto
        one line in production, which would turn a line comment into dead code. */
-    var box = document.getElementById("talk-scroll");
-    var hint = document.getElementById("talk-scroll-hint");
-    var visible = parseInt(box.dataset.visible, 10) || 10;
-    var phone = window.matchMedia("(max-width: 768px)");
-    function fit() {
-      var shownItems = items.filter(function (it) { return !it.hidden; });
-      var on = !phone.matches && shownItems.length > visible;
-      box.classList.toggle("is-scrollable", on);
-      box.tabIndex = on ? 0 : -1;
-      hint.hidden = !on;
-      if (!on) { box.style.maxHeight = ""; return; }
-      var top = shownItems[visible].getBoundingClientRect().top - box.getBoundingClientRect().top + box.scrollTop;
-      box.style.maxHeight = (top + 28) + "px";
-    }
-    window.addEventListener("load", fit);
-    window.addEventListener("resize", fit);
 
     document.addEventListener("click", function (e) {
       var el = e.target.closest ? e.target.closest(".topic-chip, .topic-tag, #talk-clear") : null;
