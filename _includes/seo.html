@@ -93,6 +93,29 @@
       "@type" : "{% if site.social.type %}{{ site.social.type }}{% else %}Person{% endif %}",
       "name" : "{{ site.social.name | default: site.name }}",
       "url" : {{ seo_url | jsonify }},
+      {%- if site.social.image %}
+      "image" : {{ site.social.image | prepend: seo_url | jsonify }},
+      {%- endif %}
+      {%- if site.description %}
+      "description" : {{ site.description | strip | jsonify }},
+      {%- endif %}
+      {%- if site.social.job_title %}
+      "jobTitle" : {{ site.social.job_title | jsonify }},
+      {%- endif %}
+      {%- if site.social.works_for %}
+      "worksFor" : {
+        "@type" : "Organization",
+        "name" : {{ site.social.works_for | jsonify }}{% if site.social.works_for_url %},
+        "url" : {{ site.social.works_for_url | jsonify }}{% endif %}{% if site.social.department %},
+        "department" : { "@type" : "Organization", "name" : {{ site.social.department | jsonify }} }{% endif %}
+      },
+      {%- endif %}
+      {%- if site.social.alumni_of %}
+      "alumniOf" : [{% for u in site.social.alumni_of %}{ "@type" : "CollegeOrUniversity", "name" : {{ u | jsonify }} }{% unless forloop.last %}, {% endunless %}{% endfor %}],
+      {%- endif %}
+      {%- if site.social.knows_about %}
+      "knowsAbout" : {{ site.social.knows_about | jsonify }},
+      {%- endif %}
       "sameAs" : {{ site.social.links | jsonify }}
     }
   </script>

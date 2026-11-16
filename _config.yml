@@ -147,10 +147,26 @@ og_image                 :  # Social media default site image
 og_description           :  # Social media default site image description
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
+# Search-engine data about Andrea (schema.org Person, in every page's header via
+# _includes/seo.html). `links` = official profiles of the same person ("sameAs"),
+# so Google connects them with this site (Andrea, 2026-11-16). Keep in sync
+# with brand/profile.md → Links; facts as on the CV.
 social:
-  type                   : # Person or Organization (defaults to Person)
-  name                   : # If the user or organization name differs from the site's name
-  links: # An array of links to social media profiles
+  type                   : Person
+  name                   : Andrea Agiollo
+  job_title              : Postdoctoral Researcher
+  works_for              : Delft University of Technology
+  works_for_url          : https://www.tudelft.nl/en/
+  department             : Multimedia Computing Group
+  alumni_of              : [University of Bologna, University of Padua, National Taiwan University]
+  image                  : /images/profile_2026.jpg
+  knows_about            : [Trustworthy AI, Privacy-preserving machine learning, Neuro-symbolic AI, Federated learning, Cybersecurity]
+  links:
+    - https://scholar.google.com/citations?user=-hSO3ikAAAAJ
+    - https://orcid.org/0000-0003-0531-1978
+    - https://dblp.org/pid/249/4580.html
+    - https://www.linkedin.com/in/andrea-agiollo-5486241b1/
+    - https://github.com/AndAgio
 
 
 # Analytics
