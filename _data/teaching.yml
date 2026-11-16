@@ -1,0 +1,85 @@
+# Teaching page (_pages/teaching.html; was "Supervision & Teaching", renamed by
+# Andrea 2026-11-16). Same headings as the Service page, entries as compact
+# cards in two columns.
+# Students are named as on other TU Delft group pages. Check with a student
+# before adding them while their thesis is still ongoing.
+#
+# Card fields (all optional except one of name / role):
+#   name      -> bold header (e.g. the student)
+#   role, org -> header "Role @ Org" instead of name (org linked if url)
+#   badge     -> small amber badge after the header (honours, e.g. Cum laude)
+#   title     -> italic line (thesis title; linked if link)
+#   text      -> plain line
+#   meta      -> small grey line, starting with 🏛️ (the institution)
+#   when      -> right-hand column
+
+sections:
+  - id: supervision
+    title: Supervision
+    groups:
+      - label: Ongoing
+        emoji: "⏳"
+        items:
+          - name: Sophie Schaaf
+            title: Trajectory-Based Analysis of Backdoored Samples in Neural Networks
+            meta: MSc thesis, TU Delft
+            when: 2026/27
+          - name: Huib Sprangers
+            title: Self-supervised Learning for Privacy preserving Graph Neural Networks
+            meta: MSc thesis, TU Delft
+            when: 2026/27
+      - label: Completed
+        emoji: "✅"
+        items:
+          - name: Anna Visman
+            title: A Neuro-Symbolic Approach to Alert Triage for Security Operations Centres
+            link: "https://repository.tudelft.nl/record/uuid:33c0515a-f1f7-4b1a-85ba-5052c9402de7"
+            meta: MSc thesis, TU Delft · with Dr. Enkeleda Bardhi
+            when: 2025/26
+          - name: Sofia Burkow
+            badge: Cum laude
+            title: Temporal Neuro-Symbolic Reasoning for Multi-Step Attack Detection
+            link: "https://repository.tudelft.nl/record/uuid:6ce3bd4d-9901-43dd-9ccf-39258f5f7320"
+            meta: MSc thesis, TU Delft · with Dr. Enkeleda Bardhi
+            when: 2025/26
+          - name: Raoul Saad
+            badge: Cum laude
+            title: Towards Local Neuro-Symbolic AI in Network Intrusion Detection Systems
+            link: "https://repository.tudelft.nl/record/uuid:f7b68d06-209d-4f77-ad39-b0746c6752da"
+            meta: MSc thesis, TU Delft · with Dr. Enkeleda Bardhi
+            when: 2025/26
+          - name: Davide Alpi
+            text: "Topic: derailment of LLM-based conversational characters (NPCs)"
+            meta: MSc thesis, University of Bologna
+            when: 2022/23
+      - label: Student projects
+        emoji: "🧑‍💻"
+        items:
+          - role: Supervisor
+            org: CSE3000 Research Project
+            text: BSc thesis projects, a group of 5 BSc students per edition
+            meta: TU Delft
+            when: 2024/25, 2026/27
+          - role: Supervisor
+            org: Hacking Lab
+            text: MSc course project by a team of 5 students
+            meta: TU Delft
+            when: 2024/25
+
+  - id: teaching
+    title: Teaching
+    items:
+      # Graph Machine Learning (DZ4305) removed: Andrea gave no lecture there (2026-11-16).
+      - role: Guest lecture
+        org: Engineering Intelligent Systems
+        title: Introduction to Natural Language Processing
+        meta: University of Bologna
+        when: May 2023
+      - role: Teaching assistant
+        org: Fondamenti di Informatica
+        text: Foundations of Computer Science, academic years 2021/22 and 2022/23
+        meta: University of Bologna
+        when: 2021–2023
+
+# Teaching Development (UTQ) removed from the website by Andrea, 2026-11-16.
+# It stays in the CV.

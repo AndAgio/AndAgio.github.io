@@ -5,8 +5,26 @@ permalink: /teaching/
 author_profile: true
 ---
 
-{% include base_path %}
+{% comment %}
+  Content lives in _data/teaching.yml (was "Supervision & Teaching", renamed
+  2026-11-16). Headings as on the Service page; entries as compact cards in
+  two columns (one on phones). Card fields are documented in the data file.
+{% endcomment %}
+{% assign t = site.data.teaching %}
 
-{% for post in site.teaching reversed %}
-  {% include archive-single.html %}
+<p class="page-intro">
+  At TU Delft I supervise MSc and BSc research on trustworthy machine learning, neuro-symbolic AI and AI for
+  cybersecurity. If you are a student interested in these topics,
+  feel free to <a href="mailto:{{ site.author.email }}">drop me an email</a>.
+</p>
+
+{% for sec in t.sections %}
+<section id="{{ sec.id }}" class="academic-section svc-section">
+  <h2 class="cvx-h2"><span class="cvx-bar" aria-hidden="true"></span><span class="cvx-h2__text">{{ sec.title | escape }}</span></h2>
+  {% if sec.items %}{% include teach-cards.html items=sec.items %}{% endif %}
+  {% for g in sec.groups %}
+  <h3 class="svc-group">{% if g.emoji %}<span class="ico" aria-hidden="true">{{ g.emoji }}</span>{% endif %}{{ g.label }}</h3>
+  {% include teach-cards.html items=g.items %}
+  {% endfor %}
+</section>
 {% endfor %}
