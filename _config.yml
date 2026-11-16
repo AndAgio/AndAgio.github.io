@@ -130,7 +130,7 @@ atom_feed:
 
 
 # SEO Related
-google_site_verification :
+google_site_verification : "0Q0vzHDC4GgvVqww5FJSleq2N-RgcnMZcQ4f9Zqq9zU" # Google Search Console (HTML tag), 2026-11-16; keep it, or verification is lost
 bing_site_verification   :
 alexa_site_verification  :
 yandex_site_verification :
